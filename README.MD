@@ -2,11 +2,12 @@
 
 Complete with user authentication, automatic result evaluation, mailing module and much more...
 
+## Contents
 - [Why did we build this?](#why-did-we-build-this)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
 - [Technologies](#technologies)
-- [Features and Screenshots](#features-and-screenshots)
+- [Features and Screenshots](#features-and-screenshots-click-to-enlarge)
 - [Tools](#tools)
 - [Contributors](#contributors)
 
@@ -25,7 +26,7 @@ What you need to run the application:-
 * **Front-End** - HTML, CSS, JS (ES6), Bootstrap 4
 * **Back-End**  - PHP, MySQL
 
-## Features and Screenshots
+## Features and Screenshots (Click to enlarge)
 | Login Page                        | Rules Page                        | Test Page                        | Result Page                        |
 | --------------------------------- | --------------------------------- | -------------------------------- | ---------------------------------- |
 | <img src="screenshots/login.png"> | <img src="screenshots/rules.png"> | <img src="screenshots/test.png"> | <img src="screenshots/result.png"> |
