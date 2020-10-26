@@ -1,0 +1,19 @@
+body,
+html {
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.display-4 {
+  margin-bottom: -60px;
+}
+
+label {
+  font-weight: 600;
+}
+
+label.error {
+  font-weight: 400;
+  color: #d9534f;
+  font-size: 80%;
+}

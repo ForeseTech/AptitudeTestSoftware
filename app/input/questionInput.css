@@ -1,0 +1,13 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+textarea {
+  min-height: 253px;
+}
+
+label.error {
+  font-weight: 400;
+  color: #d9534f;
+  font-size: 80%;
+}

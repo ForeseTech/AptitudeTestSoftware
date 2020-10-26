@@ -1,0 +1,105 @@
+<!-- TODO : Add drop down list to accept memeber's name -->
+<!-- TODO : Have hidden field which shows if student wishes to enter a core question -->
+<!-- TODO : Display all questions entered to core members only. Site should be accessible by password -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../vendor/twbs/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="icon" href="../../favicon.ico" />
+
+    <link rel="stylesheet" href="questionInput.css" />
+
+    <title>Question Input</title>
+  </head>
+  <body>
+    <div class="display-4 text-center mt-5">Question Input</div>
+
+    <div class="container">
+      <hr class="mb-3" />
+      <form method="POST" action="questionInput.php" enctype="multipart/form-data" name="questionInputForm">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <textarea name="questionInput" class="form-control" placeholder="Enter Question..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <input type="file" name="imageInput" id="imageFile" />
+            </div>
+            <p class="text-danger" id="fileUploadError"></p>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <select name="topicInput" class="form-control">
+                <option value="" selected disabled>Select Topic</option>
+                <option value="VERBAL ABILITY">VERBAL ABILITY</option>
+                <option value="QUANTITATIVE ABILITY">QUANTITATIVE ABILITY</option>
+                <option value="REASONING AND LOGICAL ABILITY">REASONING AND LOGICAL ABILITY</option>
+                <option value="PROGRAMMING">PROGRAMMING</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control" name="optA" placeholder="Enter Option A" />
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control" name="optB" placeholder="Enter Option B" />
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control" name="optC" placeholder="Enter Option C" />
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control" name="optD" placeholder="Enter Option D" />
+            </div>
+
+            <div class="form-group">
+              <select class="form-control" name="correctOpt">
+                <option value="" selected disabled>Select Correct Option</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="offset-sm-2 col-sm-4">
+            <div class="form-group">
+              <input class="btn btn-primary btn-block" type="submit" id="submitBtn" value="Submit" />
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="form-group">
+              <input class="btn btn-danger btn-block" type="reset" value="Reset" />
+            </div>
+          </div>
+        </div>
+      </form>
+      <hr class="mb-3" />
+    </div>
+  </body>
+  <!-- jQuery -->
+  <script src="../../vendor/components/jquery/jquery.min.js"></script>
+  <!-- jQuery Validate -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+  <!-- Popper.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="../../vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!-- Bootbox JS -->
+  <script src="../../vendor/pnikolov/bootbox/js/bootbox.min.js"></script>
+  <!-- Custom JS -->
+  <script src="questionInput.js"></script>
+</html>
