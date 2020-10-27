@@ -5,10 +5,8 @@ LAMP Application to conduct mock aptitude tests at SVCE.
 Complete with user authentication, automatic result evaluation, mailing module, attendance generation and much more...
 
 ## Contents
-- [Why did we build this?](#why-did-we-build-this)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-- [Technologies](#technologies)
+- [Motivation](#motivation)
+- [Installation](#installation)
 - [Project Structure](#project-structure)
 - [Usage](#usage)
 - [Features and Screenshots](#features-and-screenshots-click-to-enlarge)
@@ -18,20 +16,27 @@ Complete with user authentication, automatic result evaluation, mailing module, 
 - [Contributing](#contributing)
 - [LICENSE](#license)
 
-## Why did we build this?
-We run a chapter (club) at our college where we assist 500+ pre-final year students to prepare for their upcoming placements through a plethora of events such as mock interviews, aptitude tests and group discussions. It was a tedious process to format questions, distribute them to students, evaluate their answers and give them constructive feedback and so we decided to automate this process.
+## Motivation
+We run a chapter (club) at our college where we assist 500+ pre-final year students to prepare for their upcoming placements through a plethora of events such as mock interviews, aptitude tests and group discussions. It was a tedious process to prepare questions, invigilate tests, evaluate answer sheets, and give constructive feedback to students and so we decided to automate the process.
 
-## Getting Started
+The software runs on PHP 7.2 and MySQL. The CSS framework Bootstrap 4 was used for the design.
+
  
-### Prerequisites
-What you need to run the application:-
-* A web server with PHP preferably Apache2.
-* A MySQL Database Server.
-* [Composer](https://getcomposer.org/download/)
+## Installation
 
-## Technologies
-* **Front-End** - HTML, CSS, JS (ES6), Bootstrap 4
-* **Back-End**  - PHP, MySQL
+### Install Apache, MySQL, and PHP
+It is assumed you already know how to install LAMP stack. For macOS and Windows local development, I would recommend downloading [XAMPP](https://www.apachefriends.org/download.html) for a sandboxed environment. 
+
+### Install Composer
+[Composer](https://getcomposer.org/download/) is the standard in PHP for dependency management, class autoloading, and much more.
+
+```
+curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+```
+
+### Run Install Script
+* Run `composer install` in the root directory to download third-pary packages.
 
 ## Project Structure
 
@@ -73,7 +78,7 @@ This is a simple test software. Every question has 4 options, out of which only 
 | <img src="screenshots/login.png"> | <img src="screenshots/rules.png"> | <img src="screenshots/test.png"> | 
 
 | Question Input Page               | Feedback Page                        | Result Page                        |
-| --------------------------------- | ---------------------------------    | ---------------------------------- |
+| --------------------------------- | ------------------------------------ | ---------------------------------- |
 | <img src="screenshots/input.png"> | <img src="screenshots/feedback.png"> | <img src="screenshots/result.png"> |
 
 ## Tools
@@ -86,6 +91,7 @@ We used a combination of many tutorials and StackOverflow posts to create this p
 * [Prevent Timer Reset on Page Reload](https://stackoverflow.com/questions/49497658/prevent-timer-reset-on-page-refresh)
 * [CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
 * [Storing Images Using PHP/MySQL](https://stackoverflow.com/questions/26757659/how-to-store-images-in-mysql-database-using-php)
+* [Execute JavaScript in AJAX Response](https://subinsb.com/how-to-execute-javascript-in-ajax-response/)
 
 ## Contributors
 * Design and Development - [Nilesh D](https://github.com/Nilesh2000)
