@@ -19,24 +19,13 @@ Complete with user authentication, automatic result evaluation, mailing module, 
 ## Motivation
 We run a chapter (club) at our college where we assist 500+ pre-final year students to prepare for their upcoming placements through a plethora of events such as mock interviews, aptitude tests and group discussions. It was a tedious process to prepare questions, invigilate tests, evaluate answer sheets, and give constructive feedback to students and so we decided to automate the process.
 
-The software runs on PHP 7.2 and MySQL. The CSS framework Bootstrap 4 was used for the design.
+The software runs on PHP 7.2 and MySQL. The CSS framework [Bootstrap 4](https://getbootstrap.com/) was used for the design.
 
  
 ## Installation
 
 ### Install Apache, MySQL, and PHP
 It is assumed you already know how to install LAMP stack. For macOS and Windows local development, I would recommend downloading [XAMPP](https://www.apachefriends.org/download.html) for a sandboxed environment. 
-
-### Install Composer
-[Composer](https://getcomposer.org/download/) is the standard in PHP for dependency management, class autoloading, and much more.
-
-```
-curl -sS https://getcomposer.org/installer | php
-sudo mv composer.phar /usr/local/bin/composer
-```
-
-### Run Install Script
-* Run `composer install` in the root directory to download third-pary packages.
 
 ## Project Structure
 
@@ -73,9 +62,9 @@ This is a simple test software. Every question has 4 options, out of which only 
 * `/attendance` - Generate CSV files for department-wise attendance.
 
 ## Features and Screenshots (Click to enlarge)
-| Login Page                        | Rules Page                        | Test Page                        | 
-| --------------------------------- | --------------------------------- | -------------------------------- | 
-| <img src="screenshots/login.png"> | <img src="screenshots/rules.png"> | <img src="screenshots/test.png"> | 
+| Login Page                        | Rules Page                           | Test Page                          | 
+| --------------------------------- | ------------------------------------ | ---------------------------------- | 
+| <img src="screenshots/login.png"> | <img src="screenshots/rules.png">    | <img src="screenshots/test.png">   | 
 
 | Question Input Page               | Feedback Page                        | Result Page                        |
 | --------------------------------- | ------------------------------------ | ---------------------------------- |
