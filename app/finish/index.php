@@ -30,13 +30,11 @@ $total = $sec1 + $sec2 + $sec3 + $sec4;
 	<title>Finish Page</title>
 
   <!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="../../vendor/twbs/bootstrap/dist/css/bootstrap.min.css" />
-
+	<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
 
   <link rel="icon" href="../../favicon.ico" />
-
-
 	<link href="finishPage.css" rel="stylesheet">
+	
 </head>
 
 <body>
