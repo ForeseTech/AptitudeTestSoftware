@@ -48,13 +48,13 @@ AptitudeTestSoftware/
 ## Usage
 This is a simple test software. Every question has 4 options, out of which only one is correct.
 
-* `/input` - Create questions for the test.
-* `/login` - Log in to start test.
-* `/rules` - View rules page.
-* `/questions` - View and attempt test questions.
-* `/feedback` - Submit test feedback.
-* `/finish` - View your marks.
-* `/answers` - View the correct answers of the test.
+* `/input`      - Create questions for the test.
+* `/login`      - Log in to start test.
+* `/rules`      - View rules page.
+* `/questions`  - View and attempt test questions.
+* `/feedback`   - Submit test feedback.
+* `/finish`     - View your marks.
+* `/answers`    - View the correct answers of the test.
 * `/attendance` - Generate CSV files for department-wise attendance.
 
 ## Features and Screenshots (Click to enlarge)
