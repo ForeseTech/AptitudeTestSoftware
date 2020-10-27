@@ -1,4 +1,4 @@
-// Prevents timer reset when the page is refreshed. Will submit at exactly 1 hour after the user started the test
+// Prevents timer reset when the page is refreshed. 
 
 let timeLimit = 4500; // This is the time duration of the test in seconds
 let savedCountdown = localStorage.getItem('savedCountdown'); // See if the time we are counting down to is stored in local storage
@@ -26,7 +26,7 @@ const x = setInterval(() => {
   let timerMinute = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
   let timerSecond = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
-  // Select the DOM element where you wish to place the timer
+  // Select DOM element where you wish to place the timer
   const timer = document.querySelector('#timer');
 
   if (timerSecond >= 10) {
@@ -45,8 +45,9 @@ const x = setInterval(() => {
 
   if (timerSecond == 0) {
     if (timerHour == 0 && timerMinute == 0 && timerSecond == 0) {
-      alert("Your time is up. Click 'OK' to see your scores!");
-      calculateScore();
+      bootbox.alert("Your time is up. Click 'OK' to see your scores!", function() {
+        calculateScore();
+      });
     }
     if (timerHour == 0 && timerMinute == 1) {
       timer.style.color = 'red';

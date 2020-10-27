@@ -33,8 +33,9 @@ const x = setInterval(() => {
 
   if (timerSecond == 0) {
     if (timerMinute == 0 && timerSecond == 0) {
-      alert("Your time is up. Click 'OK' to see your scores!");
-      calculateScore();
+      bootbox.alert("Your time is up. Click 'OK' to see your scores!", function () {
+        calculateScore();
+      });
     }
     if (timerMinute == 1) {
       timer.style.color = 'red';

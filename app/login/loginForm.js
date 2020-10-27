@@ -20,8 +20,6 @@ dept.addEventListener('change', function () {
   }
 });
 
-// jQuery.validator.setDefaults({ errorClass: 'js-error' });
-
 jQuery.validator.addMethod('regex', function (value, element) {
   return this.optional(element) || /17(01|02|03|04|05|06|07|08|09|10)\d{5}/g.test(value);
 });

@@ -1,16 +1,6 @@
 <!-- TODO : Display section topic for the question numbers on the right side. -->
 <!-- TODO : When user presses submit, give an alert if he hasn't attempted all questions. -->
 <!-- TODO : Add feature to select none of the options -->
-<?php 
-session_start();
-
-if(!isset($_SESSION['regNum'])) : ?>
-
-	<script>alert("You have already submitted your test answers OR you have not yet logged in.")</script>
-	<script>window.location.href="../login/"</script>
-
-<?php endif;?>
-
 <DOCTYPE! html>
 	<html lang="en">
 
@@ -21,13 +11,32 @@ if(!isset($_SESSION['regNum'])) : ?>
 		<title>Question Page</title>
 
 		<link rel="stylesheet" href="../../vendor/twbs/bootstrap/dist/css/bootstrap.min.css" />
-
-    <link rel="icon" href="../../favicon.ico" />
 		<link rel="stylesheet" href="questionPage.css">
 
+    <link rel="icon" href="../../favicon.ico" />
+
 		<!-- jQuery -->
-		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	
+		<script src="../../vendor/components/jquery/jquery.min.js"></script>
+		<!-- Popper.js -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<!-- Bootstrap JS -->
+		<script src="../../vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+		<!-- Bootbox JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+
+		<?php 
+
+		session_start();
+		if(!isset($_SESSION['regNum'])) : ?>
+
+			<script>
+				bootbox.alert("You have already completed the test OR you have not yet logged in.", function() {
+					window.location.href="../login/";
+				});
+			</script>
+
+		<?php endif;?>
+
 		<!-- Set the status to loggedIn so that user can't go back. -->
 		<script>localStorage.setItem('status', 'loggedIn');</script>
 
