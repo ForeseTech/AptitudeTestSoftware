@@ -6,10 +6,10 @@ if (localStorage.getItem('status') !== null) {
   });
 }
 
-document.querySelector('#redirectButton').addEventListener('click', function () {
-  window.location.href = '../questions/';
-});
+const redirectBtn = document.querySelector('#redirectButton');
 
-document.querySelector('#redirectButton').addEventListener('touchstart', function () {
-  window.location.href = '../questions/';
+['click', 'touchstart'].forEach((evt) => {
+  redirectBtn.addEventListener(evt, function () {
+    (window.location.href = '../questions/'), false;
+  });
 });
