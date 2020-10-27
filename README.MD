@@ -37,12 +37,8 @@ AptitudeTestSoftware/
   includes/           # Database credentials and utility helpers
   mail/               # Mailing Module
   screenshots/        # Applications screenshots for documentation
-  vendor/             # Composer files and 3rd party packages
-  .gitignore          # Files and folders to be ignored by version control
   .htaccess           # Site Configuration File
   .prettierignore     # Files to be ignored by Prettier
-  composer.lock       # Composer lockfile
-  composer.json       # Composer dependency file
   favicon.ico         # Favicon for the application
   index.php           # Application entry point
   LICENSE             # MIT License file
