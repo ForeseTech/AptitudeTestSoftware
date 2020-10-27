@@ -1,10 +1,3 @@
-<?php 
-  require_once '../../includes/pdo.php';
-  require_once '../../includes/utilities.php';
-
-  $result = loadAnswers($pdo, "test2");
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,13 +9,27 @@
   <link rel="icon" href="../../favicon.ico" />
   <link rel="stylesheet" href="answers.css">
 
-  <title>Test 1 Answers</title>
+  <title>Answer Keys</title>
 </head>
 <body>
-  <div class="display-4 text-center mt-5">CTS Mock Test 2 Answers</div>
+  
   <div class="container">
+    
+    <?php 
+    require_once '../../includes/pdo.php';
+    require_once '../../includes/utilities.php';
 
-    <?php foreach($result as $row) : ?>
+    $linkData = $_GET["data"];
+    $testNumber = preg_match("/(\d)/", $linkData, $matches);
+    $tableName = "test".$matches[0];
+
+    if(strpos($linkData, "CTS") !== false) {
+      $pdo->query("use cts_aptitude");
+    }
+
+    $result = loadAnswers($pdo, $tableName);
+    
+    foreach($result as $row) : ?>
       <b><?=$row['QNO'];?></b>.
       <?=nl2br($row['QUESTION_TEXT']);?><br><br>
       A. <?=$row['OPTA'];?><br>
