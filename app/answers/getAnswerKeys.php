@@ -13,7 +13,7 @@
 </head>
 <body>
   
-  <div class="container">
+  <div class="container">    
     
     <?php 
     require_once '../../includes/pdo.php';
@@ -28,8 +28,11 @@
     }
 
     $result = loadAnswers($pdo, $tableName);
+    ?>
+
+    <div class="display-4 text-center mt-5"><?=$linkData." Answers";?></div>
     
-    foreach($result as $row) : ?>
+    <?php foreach($result as $row) : ?>
       <b><?=$row['QNO'];?></b>.
       <?=nl2br($row['QUESTION_TEXT']);?><br><br>
       A. <?=$row['OPTA'];?><br>
