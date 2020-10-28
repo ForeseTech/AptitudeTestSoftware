@@ -66,6 +66,10 @@ This is a simple test software. Every question has 4 options, out of which only 
 | --------------------------------- | ------------------------------------ | ---------------------------------- |
 | <img src="screenshots/input.png"> | <img src="screenshots/feedback.png"> | <img src="screenshots/result.png"> |
 
+| Answer Key Index Page                   | Answers Keys                        |
+| --------------------------------------- | ----------------------------------- |
+| <img src="screenshots/answerIndex.png"> | <img src="screenshots/answerKeys.png"> |
+
 ## Tools
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [XAMPP](https://www.apachefriends.org/download.html)
