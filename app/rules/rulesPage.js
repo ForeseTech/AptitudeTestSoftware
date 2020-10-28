@@ -1,7 +1,7 @@
 // TODO : See if this can be optimized
 
 if (localStorage.getItem('status') !== null) {
-  bootbox.alert('You cannot go back once the test has started.', function () {
+  bootbox.alert('You cannot go back once the test has started.', () => {
     window.location.href = '../questions/';
   });
 }
@@ -9,7 +9,7 @@ if (localStorage.getItem('status') !== null) {
 const redirectBtn = document.querySelector('#redirectButton');
 
 ['click', 'touchstart'].forEach((evt) => {
-  redirectBtn.addEventListener(evt, function () {
+  redirectBtn.addEventListener(evt, () => {
     (window.location.href = '../questions/'), false;
   });
 });

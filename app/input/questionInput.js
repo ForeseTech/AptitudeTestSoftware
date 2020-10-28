@@ -40,7 +40,7 @@ $(function () {
   });
 });
 
-function submitForm() {
+const submitForm = () => {
   let formData = $('[name=questionInputForm]').serialize();
   $.ajax({
     type: 'POST',
@@ -52,4 +52,4 @@ function submitForm() {
       });
     },
   });
-}
+};

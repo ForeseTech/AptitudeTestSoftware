@@ -13,15 +13,13 @@ for (i = 0; i < questionNums.length; i++) {
 }
 
 // Call calculateScore() once user presses the submit button
-document.querySelector('#submitTest').addEventListener('click', function () {
-  calculateScore();
-});
+document.querySelector('#submitTest').addEventListener('click', calculateScore);
 
 const showInfo = (qNo) => {
   $.ajax({
     url: 'questionOutput.php?qno=' + qNo + '&checked=' + userAns[qNo - 1],
-    success: function (responseText) {
-      $('#current-question').html(responseText);
+    success: function (response) {
+      $('#current-question').html(response);
       $('#current-question')
         .find('script')
         .each(function (i) {

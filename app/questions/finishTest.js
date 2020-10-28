@@ -8,9 +8,7 @@ let correctAns;
 $.ajax({
   url: 'getAnswers.php',
   success: function (response) {
-    correctAns = response.split('').map(function (item) {
-      return parseInt(item);
-    });
+    correctAns = response.split('').map((item) => parseInt(item));
   },
 });
 

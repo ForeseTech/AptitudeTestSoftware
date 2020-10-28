@@ -23,8 +23,8 @@
     $testNumber = preg_match("/(\d)/", $linkData, $matches);
     $tableName = "test".$matches[0];
 
-    if(strpos($linkData, "CTS") !== false) {
-      $pdo->query("use cts_aptitude");
+    if(strpos($linkData, "CTS") === false) {
+      $pdo->query("use aptitude");
     }
 
     $result = loadAnswers($pdo, $tableName);

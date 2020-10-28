@@ -10,14 +10,15 @@
 
 		<title>Question Page</title>
 
-		    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
-
+		<!-- Bootstrap CSS -->
+		<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+		<!-- Custom CSS -->
 		<link rel="stylesheet" href="questionPage.css">
-
+		<!-- Favicon -->
     <link rel="icon" href="../../favicon.ico" />
 
 		<!-- jQuery -->
-		<script src="../../vendor/components/jquery/jquery.min.js"></script>
+		<script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
 		<!-- Popper.js -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 		<!-- Bootstrap JS -->
@@ -31,7 +32,7 @@
 		if(!isset($_SESSION['regNum'])) : ?>
 
 			<script>
-				bootbox.alert("You have already completed the test OR you have not yet logged in.", function() {
+				bootbox.alert("You have already completed the test OR you have not yet logged in.", () => {
 					window.location.href="../login/";
 				});
 			</script>

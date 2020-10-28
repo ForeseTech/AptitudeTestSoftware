@@ -1,5 +1,6 @@
 <?php
 
+// TODO : Use fetch() instead of AJAX
 // TODO : Each request for a question is being made twice. Need to do something about that.
 // TODO : Get all the questions once and store them in an array.
 // TODO : Display multiple white spaces for programming questions (indentation)
@@ -25,7 +26,7 @@ if ($questionNum == 1) {
 if ($questionNum != 63) : ?>
 
 	<?php
-	$sql_stmt = "SELECT question_text, opta, optb, optc, optd, picture FROM test WHERE qno=:questionNum";
+	$sql_stmt = "SELECT question_text, opta, optb, optc, optd, picture FROM test WHERE qno = :questionNum";
 	$stmt = $pdo->prepare($sql_stmt);
 	$stmt->execute([":questionNum" => $questionNum]);
 	$row = $stmt->fetch();
@@ -88,10 +89,10 @@ if ($questionNum != 63) : ?>
 <?php endif; ?>
 
 <script>
-	var checkedOpt = <?= $checkedOpt; ?>;
+	var checkedOpt  = <?= $checkedOpt; ?>;
 	var questionNum = <?= $questionNum; ?>;
-	var prevNum = <?= $prevNum; ?>;
-	var nextNum = <?= $nextNum; ?>;
+	var prevNum     = <?= $prevNum; ?>;
+	var nextNum     = <?= $nextNum; ?>;
 </script>
 
 <script src="questionOutput.js"></script>

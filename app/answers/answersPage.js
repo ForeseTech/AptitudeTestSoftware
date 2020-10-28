@@ -1,6 +1,6 @@
 let answerLinks = document.querySelectorAll('a');
 for (i = 0; i < answerLinks.length; i++) {
-  answerLinks[i].addEventListener('click', function (event) {
+  answerLinks[i].addEventListener('click', (event) => {
     let linkData = this.textContent;
 
     event.preventDefault();
