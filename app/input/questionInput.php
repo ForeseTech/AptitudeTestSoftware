@@ -1,8 +1,5 @@
 <?php
 
-// TODO : Validate if all fields are filled appropriately.
-// TODO : Show Bootbox alert on successful submission of question.
-
 // Include necessary modules
 require_once '../../includes/pdo.php';
 require_once '../../includes/utilities.php';
@@ -15,20 +12,23 @@ $optD = sanitize($_POST['optD']);
 $correctOpt = sanitize($_POST['correctOpt']);
 $topic = sanitize($_POST['topicInput']);
 
-$image = !empty($_FILES["imageInput"]["name"]) ? sha1_file($_FILES["imageInput"]["tmp_name"]) . "-" . basename($_FILES["imageInput"]["name"]) : "NONE";
+$image = sha1_file($_FILES["imageInput"]["tmp_name"]) . "-" . basename($_FILES["imageInput"]["name"]);
+echo '<h1>$_FILES["imageInput"]["name"])</h1>';
 $image = sanitize($image);
 
-$sql = "INSERT INTO test VALUES(QNO, :questionText, :optA, :optB, :optC, :optD, :correctOpt, :topic, :image)";
+$sql = "INSERT INTO questions VALUES(SNO, :QuestionAuthor, :QuestionText, :QuestionTopic, :CoreDept, :OptA, :OptB, :OptC, :OptD, :CorrectOpt, :Picture)";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([
-  ':questionText' => $questionText,
-  ':optA' => $optA,
-  ':optB' => $optB,
-  ':optC' => $optC,
-  ':optD' => $optD,
-  ':correctOpt' => $correctOpt,
-  ':topic' => $topic,
-  ':image' => $image,
+  ':QuestionAuthor' => "Althaf",
+  ':QuestionText' => $questionText,
+  ':QuestionTopic' => "CORE",
+  ':CoreDept' => "CIV",
+  ':OptA' => $optA,
+  ':OptB' => $optB,
+  ':OptC' => $optC,
+  ':OptD' => $optD,
+  ':CorrectOpt' => $correctOpt,
+  ':Picture' => $image,
 ]);
 
 if($image !== "NONE") {
@@ -72,3 +72,5 @@ if($image !== "NONE") {
 }
 
 ?>
+<!-- SELECT QuestionTopic, COUNT(QuestionTopic) FROM questions GROUP BY QuestionTopic -->
+<!-- SELECT CoreDept, COUNT(CoreDept) FROM questions WHERE QuestionTopic="CORE" GROUP By CoreDept -->

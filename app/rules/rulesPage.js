@@ -1,5 +1,4 @@
-// TODO : See if this can be optimized
-
+// Do not allow user to view rules once the test has started
 if (localStorage.getItem('status') !== null) {
   bootbox.alert('You cannot go back once the test has started.', () => {
     window.location.href = '../questions/';

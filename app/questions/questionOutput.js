@@ -1,4 +1,4 @@
-if (questionNum != 63) {
+if (questionNum != 51) {
   let questionOptions = document.querySelectorAll('.radio_ans');
 
   for (i = 0; i < questionOptions.length; i++) {

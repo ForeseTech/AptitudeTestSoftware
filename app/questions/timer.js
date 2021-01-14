@@ -1,6 +1,6 @@
 // Prevents timer reset when the page is refreshed. 
 
-let timeLimit = 4500; // This is the time duration of the test in seconds
+let timeLimit = 3600; // This is the time duration of the test in seconds
 let savedCountdown = localStorage.getItem('savedCountdown'); // See if the time we are counting down to is stored in local storage
 
 if (savedCountdown == null) {
@@ -22,7 +22,7 @@ const x = setInterval(() => {
   let timeRemaining = timeLimit - currentTime;
 
   // Time calculations for minutes and seconds
-  let timerHour = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let timerHour   = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   let timerMinute = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
   let timerSecond = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 

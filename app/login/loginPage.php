@@ -22,7 +22,8 @@ $timeInterval = $startTestTime->diff($startTestTime);
 $timeInterval = $timeInterval->format("%m minutes");
 
 $_SESSION['regNum'] = $regNum;
-$_SESSION["startTestTime"] = $startTestTime;
+$_SESSION['department'] = $deptInput;
+$_SESSION['startTestTime'] = $startTestTime;
 
 $sql = "INSERT INTO users VALUES(SNO, :name, :regNum, :deptInput, :sectInput, :email, :start_time, :end_time, :time_taken)";
 $stmt = $pdo->prepare($sql);

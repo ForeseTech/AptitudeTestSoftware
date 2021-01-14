@@ -34,12 +34,12 @@
     
     <?php foreach($result as $row) : ?>
       <b><?=$row['QNO'];?></b>.
-      <?=nl2br($row['QUESTION_TEXT']);?><br><br>
-      A. <?=$row['OPTA'];?><br>
-      B. <?=$row['OPTB'];?><br>
-      C. <?=$row['OPTC'];?><br>
-      D. <?=$row['OPTD'];?><br><br>
-      Correct Option : <b><?=$row['CORRECT_OPT'];?></b>
+      <?=nl2br($row['QuestionText']);?><br><br>
+      A. <?=$row['OptA'];?><br>
+      B. <?=$row['OptB'];?><br>
+      C. <?=$row['OptC'];?><br>
+      D. <?=$row['OptD'];?><br><br>
+      Correct Option : <b><?=$row['CorrectOpt'];?></b>
       <br><br>
     <?php endforeach; ?>
 

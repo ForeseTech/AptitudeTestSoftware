@@ -34,7 +34,7 @@ $(function () {
       optD: mandatoryMessage,
       correctOpt: mandatoryMessage,
     },
-    submitHandler: function () {
+    submitHandler: () => {
       submitForm();
     },
   });

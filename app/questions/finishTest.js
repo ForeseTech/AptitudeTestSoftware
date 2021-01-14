@@ -1,16 +1,15 @@
 // TODO : Change time zone to IST
-let numOfQuestions = 62;
+let numOfQuestions = 50;
 
 // Empty Array for userAns.
 let userAns = new Array(numOfQuestions).fill(0);
 let correctAns;
 
-$.ajax({
-  url: 'getAnswers.php',
-  success: function (response) {
+fetch('./getAnswers.php')
+  .then((res) => res.text())
+  .then((response) => {
     correctAns = response.split('').map((item) => parseInt(item));
-  },
-});
+  });
 
 const calculateScore = () => {
   let i = 0;
@@ -24,13 +23,13 @@ const calculateScore = () => {
     let correctAnswer = correctAns[i];
     let userAnswer = userAns[i];
 
-    if (i < 25 && userAnswer == correctAnswer) {
+    if (i < 20 && userAnswer == correctAnswer) {
       sec_1 += 1;
-    } else if (i < 41 && userAnswer == correctAnswer) {
+    } else if (i < 30 && userAnswer == correctAnswer) {
       sec_2 += 1;
-    } else if (i < 55 && userAnswer == correctAnswer) {
+    } else if (i < 40 && userAnswer == correctAnswer) {
       sec_3 += 1;
-    } else if (i < 62 && userAnswer == correctAnswer) {
+    } else if (i < 50 && userAnswer == correctAnswer) {
       sec_4 += 1;
     }
     i += 1;

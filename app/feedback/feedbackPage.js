@@ -6,7 +6,7 @@ $(function () {
       },
     },
     messages: {
-      commentText: 'We really would appreciate some constructive feedback about the test.',
+      commentText: 'We would appreciate some constructive feedback about the test.',
     },
     submitHandler: function (form) {
       form.submit();

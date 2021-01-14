@@ -43,34 +43,33 @@ $total = $sec1 + $sec2 + $sec3 + $sec4;
 		<div class="display-4 text-center mt-5 mb-5">Your Result</div>
 
 		<p>
-			<b>Section 1 : <br>Verbal Ability</b> : <?= $sec1; ?> / 25
+			<b>Section 1 : <br>Core Questions</b> : <?= $sec1; ?> / 20
 			<br>
 		</p>
 
 		<p>
-			<b>Section 2 : <br>Quantitative Aptitude</b> : <?= $sec2; ?> / 16
+			<b>Section 2 : <br>Verbal Ability</b> : <?= $sec2; ?> / 10
 			<br>
 		</p>
 
 		<p>
-			<b>Section 3 : <br>Logical Reasoning</b> : <?= $sec3; ?> / 14
+			<b>Section 3 : <br>Quantitative Ability</b> : <?= $sec3; ?> / 10
 			<br>
 		</p>
 
-
 		<p>
-			<b>Section 4 : <br>Programming</b> : <?= $sec4; ?> / 7
+			<b>Section 4 : <br>Programming</b> : <?= $sec4; ?> / 10
 			<br>
 		</p>
 
 		<!-- Display total score -->
 		<p>
-			<b>Total Score : <?= $total; ?> / 62</b>
+			<b>Total Score : <?= $total; ?> / 50</b>
 		</p>
 	</div>
 
 	<p id="total">
-		Please screenshot this page for future use.
+		<b>Please screenshot this page for future use.</b>
 		<br>
 		You may now close this browser tab.
 	</p>

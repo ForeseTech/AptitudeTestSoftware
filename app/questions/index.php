@@ -107,18 +107,7 @@
 				<div class="questionOverview">48</div>
 				<div class="questionOverview">49</div>
 				<div class="questionOverview">50</div>
-				<div class="questionOverview">51</div>
-				<div class="questionOverview">52</div>
-				<div class="questionOverview">53</div>
-				<div class="questionOverview">54</div>
-				<div class="questionOverview">55</div>
-				<div class="questionOverview">56</div>
-				<div class="questionOverview">57</div>
-				<div class="questionOverview">58</div>
-				<div class="questionOverview">59</div>
-				<div class="questionOverview">60</div>
-				<div class="questionOverview">61</div>
-				<div class="questionOverview">62</div>
+								
 				<button type="button" id="submitTest">
 					<span>Submit Answers!</span>
 				</button>
