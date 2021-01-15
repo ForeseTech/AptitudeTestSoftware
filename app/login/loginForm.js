@@ -19,6 +19,7 @@ dept.addEventListener('change', function () {
     section.required = true;
   } else {
     section.classList.add('d-none');
+    section.value = '';
   }
 });
 

@@ -54,9 +54,11 @@ $questions = array_merge($core, $verbal, $quant, $programming);
 		<?php echo "<p><b>" . $questionNum . ". </b>" . nl2br($questions[$questionNum - 1]['QuestionText']) . "</p>"; ?>
 	</header>
 
-	<?php if ($questions[$questionNum - 1]["Picture"] != "NONE"): ?>
-		<img src=images/$picture>
-	<?php endif;?>
+	<?php 
+	if ($questions[$questionNum - 1]["Picture"] != "NONE") {
+		echo "<img src=images/". $questions[$questionNum - 1]["Picture"]. ">";
+	}
+	?>
 
 
 	<div id="options">
