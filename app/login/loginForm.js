@@ -12,20 +12,22 @@ dept.addEventListener('change', function () {
   if (deptsWithThreeSections.includes(this.value)) {
     section.classList.remove('d-none');
     section.options[3].classList.remove('d-none');
+    section.required = true;
   } else if (deptsWithTwoSections.includes(this.value)) {
     section.classList.remove('d-none');
     section.options[3].classList.add('d-none');
+    section.required = true;
   } else {
     section.classList.add('d-none');
   }
 });
 
 jQuery.validator.addMethod('regex', function (value, element) {
-  return this.optional(element) || /17(01|02|03|04|05|06|07|08|09|10)\d{5}/g.test(value);
+  return this.optional(element) || /^18(01|02|03|04|05|06|07|08|09|10)\d{5}$/g.test(value);
 });
 
 jQuery.validator.addMethod('svceEmail', function (value, element) {
-  return this.optional(element) || /2017(aut|bio|che|civ|cse|eee|ece|it|mec)\d{4}@svce\.ac\.in/g.test(value);
+  return this.optional(element) || /^2018(aut|bio|che|ce|cse|eee|ece|it|mec)\d{4}@svce\.ac\.in$/g.test(value);
 });
 
 const mandatoryMessage = 'This field is mandatory.';
