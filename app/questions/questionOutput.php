@@ -51,8 +51,7 @@ $questions = array_merge($core, $verbal, $quant, $programming);
 ?>
 
 	<header id="question">
-		<?php echo "<p><b>".$questionNum.". </b>" . $questions[$questionNum - 1]['QuestionText']."</p>"; ?>
-		<!-- "<b>$questionNum</b>. $questionText" -->
+		<?php echo "<p><b>" . $questionNum . ". </b>" . nl2br($questions[$questionNum - 1]['QuestionText']) . "</p>"; ?>
 	</header>
 
 	<?php if ($questions[$questionNum - 1]["Picture"] != "NONE"): ?>
