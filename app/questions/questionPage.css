@@ -41,6 +41,8 @@ body {
   margin-right: 1%;
 
   float: left;
+
+  user-select: none;
 }
 
 #question {
@@ -141,6 +143,7 @@ img {
 
   #current-question {
     width: 65%;
+    user-select: none;
   }
 
   #finishTestBtn {
