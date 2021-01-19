@@ -16,34 +16,52 @@
       </div>
       <div class="row">
         <div class="col-md-6">
-          <form id="loginform" method="POST" action="../test/index.php">
-            <div class="form-group col-md-8">
-              <label><b>Name : </b></label>
-              <input type="text" name="nameIn" placeholder="Your Name" class="form-control" autofocus required />
+          <form id="loginform" name="loginForm" method="POST" action="../test/index.php">
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <label><b>Name : </b></label>
+                <input type="text" name="nameIn" placeholder="Your Name" class="form-control" autofocus required />
+              </div>
             </div>
-            <div class="form-group col-md-8">
-              <label><b>Registration Number : </b></label>
-              <input type="text" name="regIn" placeholder="Your Registration No." class="form-control" required />
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <label><b>Registration Number : </b></label>
+                <input type="text" name="regIn" placeholder="Your Registration No." class="form-control" required />
+              </div>
             </div>
-            <div class="form-group col-md-8">
-              <label><b>Department: </b></label>
-              <select name="deptIn" id="deptSelect" class="form-control" required>
-                <option value="" disabled selected>Select Department</option>
-                <option value="AUT">Automobile Engineering</option>
-                <option value="BIO">Biotechnology</option>
-                <option value="CHE">Chemical Engineering</option>
-                <option value="CIV">Civil Engineering</option>
-                <option value="CSE">Computer Science and Engineering</option>
-                <option value="EEE">Electrical and Electronics Engineering</option>
-                <option value="ECE">Electronics and Communications Engineering</option>
-                <option value="INT">Information Technology</option>
-                <option value="MEC">Mechanical Engineering</option>
-              </select>
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <label><b>Department: </b></label>
+                <select name="deptIn" id="deptSelect" class="form-control" required>
+                  <option value="" disabled selected>Select Department</option>
+                  <option value="AUT">Automobile Engineering</option>
+                  <option value="BIO">Biotechnology</option>
+                  <option value="CHE">Chemical Engineering</option>
+                  <option value="CIV">Civil Engineering</option>
+                  <option value="CSE">Computer Science and Engineering</option>
+                  <option value="EEE">Electrical and Electronics Engineering</option>
+                  <option value="ECE">Electronics and Communications Engineering</option>
+                  <option value="INT">Information Technology</option>
+                  <option value="MEC">Mechanical Engineering</option>
+                </select>
+              </div>
             </div>
-            <div class="form-group col-md-8">
-              <label><b>E-Mail ID : </b></label>
-              <input type="email" name="emailIn" placeholder="Your E-Mail ID" class="form-control" required />
-              <small class="text-muted">Please use your SVCE affiliated E-Mail ID only.</small>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <select name="sectionInput" class="form-control d-none mt-4">
+                  <option value="" selected disabled>Sec.</option>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C" class="d-none">C</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <label><b>E-Mail ID : </b></label>
+                <input type="email" name="emailIn" placeholder="Your E-Mail ID" class="form-control" required />
+                <small class="text-muted">Please use your SVCE affiliated E-Mail ID only.</small>
+              </div>
             </div>
             <button type="submit" class="formInput btn btn-primary btn-lg ml-3" id="submitButt">Start Test</button>
           </form>
@@ -62,5 +80,6 @@
         </div>
       </div>
     </div>
+    <script src="../static/js/loginForm.js"></script>
   </body>
 </html>

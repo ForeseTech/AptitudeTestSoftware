@@ -22,17 +22,19 @@
 				$name       = strtoupper($_POST['nameIn']);
 				$regnumber  = $_POST['regIn'];
 				$department = $_POST['deptIn'];
+				$section    = !empty($_POST['sectionInput']) ? $_POST['sectionInput'] : "";
 				$email      = $_POST['emailIn'];
 
 				try{
 
 					$conn = getConn();
-					$sql_query = "INSERT INTO users VALUES(SNO, :name, :regNum, :deptInput, :email)";
+					$sql_query = "INSERT INTO users VALUES(SNO, :name, :regNum, :deptInput, :sectionInput, :email)";
 					$sql = $conn->prepare($sql_query);
 					$sql->execute([
 						':name' => $name,
 						':regNum' => $regnumber,
 						':deptInput' => $department,
+						':sectionInput' => $section,
 						':email' => $email,
 					]);
 
