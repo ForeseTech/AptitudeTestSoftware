@@ -1,0 +1,36 @@
+body, html {
+	margin: 0;
+	padding: 0;
+
+	font-family: "Verdana", sans-serif;
+}
+
+header {
+	display: block;
+			
+	margin: 3% 0%;
+
+	font-size: 200%;
+	text-align: center;
+}
+
+form{
+	display: block;
+	width: 100%;
+
+	padding-top: 2%;
+}
+
+input, select, button{
+	display: block;
+	width: 20%;
+
+	margin: 1% auto;
+	padding: 0.3%;
+
+	font-size: 105%;
+}
+
+select, button{
+	width: 20.6%;
+}
