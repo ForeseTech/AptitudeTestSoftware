@@ -18,12 +18,13 @@
 			<?php
 
 				require '../sql_connections.php';
+				require '../includes/utilities.php';
 
-				$name       = strtoupper($_POST['nameIn']);
-				$regnumber  = $_POST['regIn'];
-				$department = $_POST['deptIn'];
-				$section    = !empty($_POST['sectionInput']) ? $_POST['sectionInput'] : "";
-				$email      = $_POST['emailIn'];
+				$name       = sanitize(strtoupper($_POST['nameIn']));
+				$regnumber  = sanitize($_POST['regIn']);
+				$department = sanitize($_POST['deptIn']);
+				$section    = !empty($_POST['sectionInput']) ? sanitize($_POST['sectionInput']) : "";
+				$email      = sanitize($_POST['emailIn']);
 
 
 				$conn = getConn();
