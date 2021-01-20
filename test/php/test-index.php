@@ -54,8 +54,9 @@
 	for($count = 0; $count < $no_of_questions; $count += 1){
 	
 		$question_count = $count + 1;
+		$user_answer = !empty($_POST["question$question_count"]) ? $_POST["question$question_count"] : "";
 
-		if($correct_answers[$count] == $_POST["question$question_count"]){
+		if($correct_answers[$count] == $user_answer){
 			$correct += 1;
 
 			if($count < 20) {
@@ -75,9 +76,9 @@
 	}
 
 	try {
-			$conn = getConn();
+			$conn      = getConn();
 			$sql_query = "INSERT INTO scores(reg_no, sec_1, sec_2, sec_3, sec_4, total) VALUES(:reg_no,:sec_1,:sec_2,:sec_3,:sec_4,:total)";
-			$stmt = $conn->prepare($sql_query);
+			$stmt      = $conn->prepare($sql_query);
 			$stmt->execute([
 				':reg_no' => $regnumber,
 				':sec_1' => $section_scores[0],
@@ -88,7 +89,7 @@
 			]);
 
 
-			$alert_message = "Your submission has been successfully recorded!\\n";
+			$alert_message  = "Your submission has been successfully recorded!\\n";
 			$alert_message .= "Your score is as follows:\\n\\n";
 			$alert_message .= "Section 1 (Core Department) : $section_scores[0]/20\\n";
 			$alert_message .= "Section 2 (Verbal Ability) : $section_scores[1]/10\\n";
