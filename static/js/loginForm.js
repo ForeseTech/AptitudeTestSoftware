@@ -1,3 +1,5 @@
+localStorage.removeItem('savedCountdown');
+
 dept = document.forms['loginForm']['deptIn'];
 section = document.forms['loginForm']['sectionInput'];
 
