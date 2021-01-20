@@ -7,7 +7,7 @@
 		<title>APTITUDE TEST</title>
 
 		<link href="../static/css/test-index.css" rel="stylesheet">
-		<script src = "../static/js/index.js"></script>
+		<script src = "../static/js/timer.js"></script>
 	</head>
 
 	<body>
