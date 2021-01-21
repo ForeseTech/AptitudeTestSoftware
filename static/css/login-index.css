@@ -15,11 +15,18 @@
 }
 
 footer {
+  display: block;
   position: fixed;
   text-align: center;
   background-color: #f8f9fa;
   bottom: 0;
-  height: 45px;
-  line-height: 45px;
+  padding: 0.65rem 1rem;
   width: 100%;
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    padding-bottom: 7rem;
+  }
 }
