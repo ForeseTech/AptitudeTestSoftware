@@ -13,11 +13,17 @@
     <div class="container">
       <div id="head">
         <header id="pageHead" class="display-4 text-center">Aptitude Test</header>
-        <h3 class="text-center mb-2 mt-2">MOCK PLACEMENTS 2021</h3>
       </div>
       <div class="row">
         <div class="col-md-6">
-          <form id="loginform" name="loginForm" method="POST" action="../test/index.php">
+          <form
+            id="loginform"
+            name="loginForm"
+            method="POST"
+            action="../test/index.php"
+            class="needs-validation"
+            novalidate
+          >
             <div class="form-row">
               <div class="form-group col-md-8">
                 <label><b>Name : </b></label>
@@ -61,10 +67,10 @@
               <div class="form-group col-md-8">
                 <label><b>E-Mail ID : </b></label>
                 <input type="email" name="emailIn" placeholder="Your E-Mail ID" class="form-control" required />
-                <small class="text-muted">Please use your SVCE affiliated E-Mail ID only.</small>
+                <small class="text-danger">Please use your SVCE affiliated E-Mail ID only.</small>
               </div>
             </div>
-            <button type="submit" class="formInput btn btn-primary btn-lg ml-3" id="submitButt">Start Test</button>
+            <button type="submit" class="formInput btn btn-primary btn-lg" id="submitButt">Start Test</button>
           </form>
         </div>
         <div class="col-md-6">
@@ -74,13 +80,20 @@
           <b>3. </b> There are <b>20</b> core departmental questions, <b>10</b> verbal ability question,
           <b>10</b> quantitative ability questions and <b>10</b> programming questions on the test. <br />
           <b>4.</b> Attempt <b>all</b> the questions.<br />
-          <b>5.</b> 1 point is granted for every correct answer. There is <b>no negative marking</b> for wrong
+          <b>5.</b> <b>1 point</b> is granted for every correct answer. There is <b>no negative marking</b> for wrong
           answers.<br />
           <b>6.</b> Once you have attempted all the questions, click on the <b>submit</b> button.<br />
-          <b>7.</b> Please keep a <b>pen and paper</b> by your side before starting the test.<br />
+          <b>7.</b> No second attempts to take the test will be given at any cost.<br />
+          <b>8.</b> Please keep a <b>pen and paper</b> by your side before starting the test.<br />
         </div>
       </div>
     </div>
+    <footer>
+      Copyright &copy; 2021 <b>FOR</b>um for <b>E</b>conomic <b>S</b>tudies by <b>E</b>ngineers - Designed and Developed
+      by
+      <b>FORESE Tech</b>
+    </footer>
     <script src="../static/js/loginForm.js"></script>
+    <script src="../static/js/validateForms.js"></script>
   </body>
 </html>
