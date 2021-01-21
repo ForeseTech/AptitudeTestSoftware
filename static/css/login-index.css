@@ -13,3 +13,13 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+footer {
+  position: fixed;
+  text-align: center;
+  background-color: #f8f9fa;
+  bottom: 0;
+  height: 45px;
+  line-height: 45px;
+  width: 100%;
+}

@@ -104,5 +104,10 @@
 			<button type="submit">Submit!</button>
 
 		</form>
+		<footer>
+      Copyright &copy; 2021 <b>FOR</b>um for <b>E</b>conomic <b>S</b>tudies by <b>E</b>ngineers - Designed and Developed
+      by
+      <b>FORESE Tech</b>
+    </footer>
 	</body>
 </html>

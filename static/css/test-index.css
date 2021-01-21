@@ -30,16 +30,19 @@ h1 {
   position: fixed;
   top: 0;
   border-bottom: 1px solid black;
+  background-color: #f8f9fa;
   font-weight: 700;
   text-align: center;
   color: green;
   font-size: 180%;
+  height: 2.75rem;
+  vertical-align: middle;
 }
 
 form {
   height: 95%;
   width: 70%;
-  margin: 1% auto;
+  margin: 5% auto;
 }
 
 .options {
@@ -67,8 +70,27 @@ button {
   display: block;
   width: 50%;
 
-  margin: 2% auto 1% auto;
+  margin: 2% auto 5% auto;
   padding: 1%;
 
   font-size: 150%;
+}
+
+footer {
+  position: fixed;
+  text-align: center;
+  background-color: #f8f9fa;
+  bottom: 0;
+  height: 45px;
+  line-height: 45px;
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    padding-bottom: 4rem;
+  }
+  .questions {
+    padding-top: 10%;
+  }
 }
