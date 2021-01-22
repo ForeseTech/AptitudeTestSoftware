@@ -11,7 +11,7 @@
 </head>
 <body>
   <div class="container mt-5">
-    <table class="table table-bordered table-hover" id="scores">
+    <table class="table table-bordered table-hover table-responsive" id="scores">
       <thead>
         <tr>
           <th>SNO</th>
@@ -26,34 +26,43 @@
           <th>Total</th>
         </tr>
       </thead>
+      
       <tbdoy>
-    <?php 
 
-			require '../sql_connections.php';
-			$conn = getConn();
+        <?php 
 
-      $query = "SELECT scores.SNO, scores.reg_no, users.name, users.dept, users.section, scores.sec_1, scores.sec_2, scores.sec_3, scores.sec_4, scores.total FROM scores, users WHERE scores.reg_no = users.reg_no";
+          require '../sql_connections.php';
+          $conn = getConn();
 
-      $stmt = $conn->query($query);
-      $scores = $stmt->fetchAll();
+          $query = "SELECT scores.SNO, scores.reg_no, users.name, users.dept, users.section, scores.sec_1, scores.sec_2, scores.sec_3, scores.sec_4, scores.total FROM scores, users WHERE scores.reg_no = users.reg_no";
 
-    ?>
-    <?php foreach($scores as $key=>$score) : ?>
-      <tr>
-        <td><?= $key + 1 ?></td>
-        <td><?= $score["reg_no"]; ?></td>
-        <td><?= $score["name"]; ?></td>
-        <td><?= $score["dept"]; ?></td>
-        <td><?= $score["section"]; ?></td>
-        <td><?= $score["sec_1"]; ?></td>
-        <td><?= $score["sec_2"]; ?></td>
-        <td><?= $score["sec_3"]; ?></td>
-        <td><?= $score["sec_4"]; ?></td>
-        <td><?= $score["total"]; ?></td>
-      </tr>
-    <?php endforeach; ?>
-    </tbdoy>
+          $stmt = $conn->query($query);
+          $scores = $stmt->fetchAll();
+
+        ?>
+
+        <?php foreach($scores as $key=>$score) : ?>
+          <tr>
+            <td><?= $key + 1 ?></td>
+            <td><?= $score["reg_no"]; ?></td>
+            <td><?= $score["name"]; ?></td>
+            <td><?= $score["dept"]; ?></td>
+            <td><?= $score["section"]; ?></td>
+            <td><?= $score["sec_1"]; ?></td>
+            <td><?= $score["sec_2"]; ?></td>
+            <td><?= $score["sec_3"]; ?></td>
+            <td><?= $score["sec_4"]; ?></td>
+            <td><?= $score["total"]; ?></td>
+          </tr>
+        <?php endforeach; ?>
+
+      </tbdoy>
     </table>
   </div>
+  <footer>
+      Copyright &copy; 2021 <b>FOR</b>um for <b>E</b>conomic <b>S</b>tudies by <b>E</b>ngineers - Designed and Developed
+      by
+      <b>FORESE Tech</b>
+    </footer>
 </body>
 </html>
