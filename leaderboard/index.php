@@ -11,7 +11,7 @@
 </head>
 <body>
   <div class="container mt-5">
-    <table class="table table-bordered table-hover table-responsive" id="scores">
+    <table class="table table-bordered table-hover" id="scores">
       <thead>
         <tr>
           <th>SNO</th>
