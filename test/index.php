@@ -75,9 +75,14 @@
 					$optionb  = nl2br($row['OptB']);
 					$optionc  = nl2br($row['OptC']);
 					$optiond  = nl2br($row['OptD']);
+					$image = $row["Picture"];
 				?>
 
 				<div class = "questions"><b><?= $question_count ?>. <?= $question ?></b></div>
+
+				<?php if ($image !== "NONE") : ?>
+					<img src="<?= $_SERVER['SERVER_NAME'] ?>/static/img/<?= $image ?>" alt="Question Image" />
+				<?php endif; ?>
 
 				<div class="options">
 					<label>
