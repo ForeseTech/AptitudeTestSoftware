@@ -43,7 +43,7 @@
 
 				$conn = getConn();
 									
-				$offsetArr = array("AUT" => 0, "BIO" => 0, "CHE" => 0, "CIV" => 10, "CSE" => 10, "EEE" => 10, "ECE" => 20, "INT" => 20, "MEC" => 20);
+				$offsetArr = array("AUT" => 0, "BIO" => 0, "CHE" => 0, "CIV" => 0, "CSE" => 10, "EEE" => 10, "ECE" => 10, "INT" => 10, "MEC" => 10);
 				$offset = $offsetArr[$department];
 
 				$sql_stmt = "SELECT QuestionText, OptA, OptB, OptC, OptD, Picture FROM questions WHERE CoreDept = :CoreDept";
