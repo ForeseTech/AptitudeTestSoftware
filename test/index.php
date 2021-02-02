@@ -81,7 +81,7 @@
 				<div class = "questions"><b><?= $question_count ?>. <?= $question ?></b></div>
 
 				<?php if ($image !== "NONE") : ?>
-					<img src="<?= $_SERVER['SERVER_NAME'] ?>/static/img/<?= $image ?>" alt="Question Image" />
+					<img src="img/<?= $image ?>" alt="Question Image" />
 				<?php endif; ?>
 
 				<div class="options">
