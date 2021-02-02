@@ -81,7 +81,7 @@
 				<div class = "questions"><b><?= $question_count ?>. <?= $question ?></b></div>
 
 				<?php if ($image !== "NONE") : ?>
-					<img src="img/<?= $image ?>" alt="Question Image" />
+					<img src="img/<?= $image ?>" alt="Question Image" width="400" />
 				<?php endif; ?>
 
 				<div class="options">
@@ -115,4 +115,5 @@
       <b>FORESE Tech</b>
     </footer>
 	</body>
+	<script src="../static/js/script.js"></script>
 </html>
