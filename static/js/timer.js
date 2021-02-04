@@ -1,4 +1,4 @@
-let timeLimit = 3600; // This is the time duration of the test in seconds
+let timeLimit = 2400; // This is the time duration of the test in seconds
 let savedCountdown = localStorage.getItem('savedCountdown'); // See if the time we are counting down to is stored in local storage
 
 if (savedCountdown == null) {

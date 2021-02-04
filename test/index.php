@@ -22,13 +22,14 @@
 
 				$name       = sanitize(strtoupper($_POST['nameIn']));
 				$regnumber  = sanitize($_POST['regIn']);
+				$preference = sanitize($_POST['modeIn']);
 				$department = sanitize($_POST['deptIn']);
 				$section    = !empty($_POST['sectionInput']) ? sanitize($_POST['sectionInput']) : "";
 				$email      = sanitize($_POST['emailIn']);
 
 
 				$conn = getConn();
-				$sql_query = "INSERT INTO users VALUES(SNO, :name, :regNum, :deptInput, :sectionInput, :email)";
+				$sql_query = "INSERT INTO users VALUES(SNO, :name, :regNum, :deptInput, :sectionInput, :email, :preferenceInput)";
 				$sql = $conn->prepare($sql_query);
 				$sql->execute([
 					':name'         => $name,
@@ -36,6 +37,7 @@
 					':deptInput'    => $department,
 					':sectionInput' => $section,
 					':email' 				=> $email,
+					':preferenceInput' => $preference,
 				]);
 				
 				$question_count = 1;
