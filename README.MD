@@ -8,7 +8,6 @@ Complete with user authentication, automatic result evaluation, mailing module, 
 - [Motivation](#motivation)
 - [Installation](#installation)
 - [Project Structure](#project-structure)
-- [Usage](#usage)
 - [Features and Screenshots](#features-and-screenshots-click-to-enlarge)
 - [Tools](#tools)
 - [Acknowledgements](#acknowledgements)
@@ -31,44 +30,32 @@ It is assumed you already know how to install LAMP stack. For macOS and Windows 
 
 ```
 AptitudeTestSoftware/
-  .git                # Git Source Directory
-  app/                # HTML, CSS, JS, PHP source code
-  database/           # SQL Schema
-  includes/           # Database credentials and utility helpers
-  mail/               # Mailing Module
-  screenshots/        # Applications screenshots for documentation
-  .htaccess           # Site Configuration File
-  .prettierignore     # Files to be ignored by Prettier
-  favicon.ico         # Favicon for the application
-  index.php           # Application entry point
-  LICENSE             # MIT License file
-  README.MD           # Brief documentation
+  .git                  # Git Source Directory
+  answers/              # Page to display answers
+  includes/             # Utility Helpers
+  leaderboard/          # Page to display scores of all users
+  login/                # Accept student data and show test rules
+  schema/               # SQL Schema
+  screenshots/          # Applications screenshots for documentation
+  static/               # Static CSS and JS files
+  test/                 # PHP Script to display questions and question images
+  composer.json         # Project Description and Dependencies
+  favicon.ico           # Favicon for the application
+  index.html            # Application entry point
+  LICENSE               # MIT License file
+  Procfile              # List of process types in an app
+  README.MD             # Brief documentation
+  sql_connections.php   # Database connection helper
 ```
 
-## Usage
-This is a simple test software. Every question has 4 options, out of which only one is correct.
-
-* `/input`      - Create questions for the test.
-* `/login`      - Log in to start test.
-* `/rules`      - View rules page.
-* `/questions`  - View and attempt test questions.
-* `/feedback`   - Submit test feedback.
-* `/finish`     - View your marks.
-* `/answers`    - View the correct answers of the test.
-* `/attendance` - Generate CSV files for department-wise attendance.
-
 ## Features and Screenshots (Click to enlarge)
-| Login Page                        | Rules Page                           | Test Page                          | 
-| --------------------------------- | ------------------------------------ | ---------------------------------- | 
-| <img src="screenshots/login.png"> | <img src="screenshots/rules.png">    | <img src="screenshots/test.png">   | 
+| Login Page                        | Test Page                          | Leaderboard Page
+| --------------------------------- | ---------------------------------- | ---------------------------------- |
+| <img src="screenshots/login.png"> | <img src="screenshots/test.png">   | <img src="screenshots/leaderboard.png">
 
-| Question Input Page               | Feedback Page                        | Result Page                        |
-| --------------------------------- | ------------------------------------ | ---------------------------------- |
-| <img src="screenshots/input.png"> | <img src="screenshots/feedback.png"> | <img src="screenshots/result.png"> |
-
-| Answer Key Index Page                   | Answers Keys                        |
-| --------------------------------------- | ----------------------------------- |
-| <img src="screenshots/answerIndex.png"> | <img src="screenshots/answerKeys.png"> |
+| Question Input Page               | Feedback Page                        | Answers Keys                           |
+| --------------------------------- | ------------------------------------ | -----------------------------------    |
+| <img src="screenshots/input.png"> | <img src="screenshots/feedback.png"> | <img src="screenshots/answerKeys.png"> |
 
 ## Tools
 * [Visual Studio Code](https://code.visualstudio.com/)
@@ -78,9 +65,9 @@ This is a simple test software. Every question has 4 options, out of which only 
 We used a combination of many tutorials and StackOverflow posts to create this project. The following have been the most important.
 * [Connect PHP and MySQL using PDO](https://phpdelusions.net/pdo)
 * [Prevent Timer Reset on Page Reload](https://stackoverflow.com/questions/49497658/prevent-timer-reset-on-page-refresh)
-* [CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
-* [Storing Images Using PHP/MySQL](https://stackoverflow.com/questions/26757659/how-to-store-images-in-mysql-database-using-php)
-* [Execute JavaScript in AJAX Response](https://subinsb.com/how-to-execute-javascript-in-ajax-response/)
+* [Storing Images in MySQL using PHP](https://stackoverflow.com/questions/26757659/how-to-store-images-in-mysql-database-using-php)
+* [Disable Right-Click on a Site](https://stackoverflow.com/questions/737022/how-do-i-disable-right-click-on-my-web-page)
+* [Prevent Copying Text on a Site](https://stackoverflow.com/questions/8957443/prevent-copying-text-in-web-page/8957470)
 
 ## Contributors
 * Design and Development - [Nilesh D](https://github.com/Nilesh2000)
