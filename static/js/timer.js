@@ -1,4 +1,4 @@
-let timeLimit = 2400; // This is the time duration of the test in seconds
+let timeLimit = 3600; // This is the time duration of the test in seconds
 let savedCountdown = localStorage.getItem('savedCountdown'); // See if the time we are counting down to is stored in local storage
 
 if (savedCountdown == null) {
@@ -20,8 +20,12 @@ const x = setInterval(() => {
   let timeRemaining = timeLimit - currentTime;
 
   // Time calculations for minutes and seconds
-  let timerHour = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  let timerMinute = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+  let timerHour = Math.floor(
+    (timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+  );
+  let timerMinute = Math.floor(
+    (timeRemaining % (1000 * 60 * 60)) / (1000 * 60)
+  );
   let timerSecond = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
   // Select DOM element where you wish to place the timer
@@ -31,19 +35,22 @@ const x = setInterval(() => {
     if (timerMinute >= 10) {
       timer.innerHTML = '0' + timerHour + ':' + timerMinute + ':' + timerSecond;
     } else {
-      timer.innerHTML = '0' + timerHour + ':' + '0' + timerMinute + ':' + timerSecond;
+      timer.innerHTML =
+        '0' + timerHour + ':' + '0' + timerMinute + ':' + timerSecond;
     }
   } else if (timerSecond < 10) {
     if (timerMinute >= 10) {
-      timer.innerHTML = '0' + timerHour + ':' + timerMinute + ':0' + timerSecond;
+      timer.innerHTML =
+        '0' + timerHour + ':' + timerMinute + ':0' + timerSecond;
     } else {
-      timer.innerHTML = '0' + timerHour + ':' + '0' + timerMinute + ':0' + timerSecond;
+      timer.innerHTML =
+        '0' + timerHour + ':' + '0' + timerMinute + ':0' + timerSecond;
     }
   }
 
   if (timerSecond == 0) {
     if (timerHour == 0 && timerMinute == 0 && timerSecond == 0) {
-      document.getElementById('quiz').submit();
+      document.getElementById('test').submit();
     }
     if (timerHour == 0 && timerMinute == 1) {
       timer.style.color = 'red';
@@ -51,7 +58,7 @@ const x = setInterval(() => {
   }
 
   if (timerMinute < 0) {
-    document.getElementById('quiz').submit();
+    document.getElementById('test').submit();
   }
 
   if (timeRemaining < 0) {
