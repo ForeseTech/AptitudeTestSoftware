@@ -2,18 +2,20 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<title>APTITUDE TEST</title>
+		<title>Aptitude Test - Mocks 2022</title>
 
+		<!-- Custom CSS -->
 		<link href="../static/css/test-index.css" rel="stylesheet">
+		<!-- Timer JS -->
 		<script src = "../static/js/timer.js"></script>
 	</head>
 
 	<body>
 		<span id="timer"></span>
 
-		<form method="POST" id="quiz" action="php/test-index.php" name="quiz">
+		<form method="POST" id="test" action="php/test-index.php" name="test">
 		
 			<?php
 
@@ -21,32 +23,30 @@
 				require '../includes/utilities.php';
 
 				$name       = sanitize(strtoupper($_POST['nameIn']));
-				$regnumber  = sanitize($_POST['regIn']);
-				$preference = sanitize($_POST['modeIn']);
+				$regNum     = sanitize($_POST['regIn']);
 				$department = sanitize($_POST['deptIn']);
 				$section    = !empty($_POST['sectionInput']) ? sanitize($_POST['sectionInput']) : "";
 				$email      = sanitize($_POST['emailIn']);
 
-
+				// Establish database connection
 				$conn = getConn();
-				$sql_query = "INSERT INTO users VALUES(SNO, :name, :regNum, :deptInput, :sectionInput, :email, :preferenceInput)";
+				$sql_query = "INSERT INTO users VALUES(SNO, :name, :regNum, :deptInput, :sectionInput, :email)";
 				$sql = $conn->prepare($sql_query);
 				$sql->execute([
 					':name'         => $name,
-					':regNum'       => $regnumber,
+					':regNum'       => $regNum,
 					':deptInput'    => $department,
 					':sectionInput' => $section,
-					':email' 				=> $email,
-					':preferenceInput' => $preference,
+					':email' 		=> $email,
 				]);
 				
-				$question_count = 1;
+				$qCount = 1;
 
-
+				// Do we need this?
 				$conn = getConn();
 									
-				$offsetArr = array("AUT" => 0, "BIO" => 0, "CHE" => 0, "CIV" => 0, "CSE" => 10, "EEE" => 10, "ECE" => 10, "INT" => 10, "MEC" => 10);
-				$offset = $offsetArr[$department];
+				$setNo = ((int)$regNum % 3);
+				$offset = $setNo * 10;
 
 				$sql_stmt = "SELECT QuestionText, OptA, OptB, OptC, OptD, Picture FROM questions WHERE CoreDept = :CoreDept";
 				$stmt = $conn->prepare($sql_stmt);
@@ -66,56 +66,54 @@
 				$programming = $stmt->fetchAll();
 
 				$results = array_merge($core, $verbal, $quant, $programming);
-			
 			?>
 
 			<?php foreach($results as $row) : ?>
 
 				<?php
 					$question = nl2br($row['QuestionText']);
-					$optiona  = nl2br($row['OptA']);
-					$optionb  = nl2br($row['OptB']);
-					$optionc  = nl2br($row['OptC']);
-					$optiond  = nl2br($row['OptD']);
+					$optA  = nl2br($row['OptA']);
+					$optB  = nl2br($row['OptB']);
+					$optC  = nl2br($row['OptC']);
+					$optD  = nl2br($row['OptD']);
 					$image = $row["Picture"];
 				?>
 
-				<div class = "questions"><b><?= $question_count ?>. <?= $question ?></b></div>
+				<div class = "questions"><b><?= $qCount ?>. <?= $question ?></b></div>
 
-				<?php if ($image !== "NONE") : ?>
-					<img src="img/<?= $image ?>" alt="Question Image" width="400" />
+				<?php if ($image !== "None") : ?>
+					<img src="<?= $image ?>" alt="Question Image" width="400" />
 				<?php endif; ?>
 
 				<div class="options">
 					<label>
-						<input type="radio" id="mc<?= $question_count ?>" name="question<?= $question_count ?>" value="A"><?= $optiona ?><br>
+						<input type="radio" id="mc<?= $qCount ?>" name="question<?= $qCount ?>" value="A"><?= $optA ?><br>
 					</label>
 					<label>
-						<input type="radio" id="mc<?= $question_count ?>" name="question<?= $question_count ?>" value="B"><?= $optionb ?><br>
+						<input type="radio" id="mc<?= $qCount ?>" name="question<?= $qCount ?>" value="B"><?= $optB ?><br>
 					</label>
 					<label>
-						<input type="radio" id="mc<?= $question_count ?>" name="question<?= $question_count ?>" value="C"><?= $optionc ?><br>
+						<input type="radio" id="mc<?= $qCount ?>" name="question<?= $qCount ?>" value="C"><?= $optC ?><br>
 					</label>
 					<label>
-						<input type="radio" id="mc<?= $question_count ?>" name="question<?= $question_count ?>" value="D"><?= $optiond ?><br>
+						<input type="radio" id="mc<?= $qCount ?>" name="question<?= $qCount ?>" value="D"><?= $optD ?><br>
 					</label>
 				</div>
 
-				<?php $question_count += 1; ?>
+				<?php $qCount += 1; ?>
 
 			<?php endforeach; ?>
 
 			<input type="hidden" name="department" value="<?= $department ?>">
-			<input type="hidden" name="regnumber" value="<?= $regnumber ?>">
+			<input type="hidden" name="regnumber" value="<?= $regNum ?>">
 
-			<button type="submit">Submit!</button>
+			<button type="submit">Submit Test</button>
 
 		</form>
 		<footer>
-      Copyright &copy; 2021 <b>FOR</b>um for <b>E</b>conomic <b>S</b>tudies by <b>E</b>ngineers - Designed and Developed
-      by
-      <b>FORESE Tech</b>
-    </footer>
+			Copyright &copy; 2022 <b>FOR</b>um for <b>E</b>conomic <b>S</b>tudies by <b>E</b>ngineers - 
+			Designed and Developed by<b> FORESE Tech</b>
+    	</footer>
 	</body>
 	<script src="../static/js/script.js"></script>
 </html>
