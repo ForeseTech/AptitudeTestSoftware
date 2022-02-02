@@ -2,18 +2,18 @@
 
 function getConn() {
     // Authentication credentials
-    $cleardb_url = parse_url("my_sql_url");
-    $DB_HOST = $cleardb_url["host"];
+    $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+    $DB_HOST     = $cleardb_url["host"];
     $DB_USERNAME = $cleardb_url["user"];
     $DB_PASSWORD = $cleardb_url["pass"];
-    $DB_NAME = substr($cleardb_url["path"], 1);
-    $DB_CHARSET = "utf8mb4";
+    $DB_NAME     = substr($cleardb_url["path"], 1);
+    $DB_CHARSET  = "utf8mb4";
 
-//   $DB_HOST =  "localhost";
-//   $DB_NAME =  "mocks";
+//   $DB_HOST     =  "localhost";
+//   $DB_NAME     =  "mocks";
 //   $DB_USERNAME =  "root";
 //   $DB_PASSWORD =  "";
-//   $DB_CHARSET =  "utf8mb4";
+//   $DB_CHARSET  =  "utf8mb4";
 
   $dsn = "mysql:host=" . $DB_HOST . ";dbname=" . $DB_NAME . ";charset=" . $DB_CHARSET;
   $options = [
@@ -26,7 +26,6 @@ function getConn() {
   } catch (PDOException $e) {
       echo $e->getMessage();
   }
-
   return $pdo;
 }
 
