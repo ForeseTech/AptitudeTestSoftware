@@ -3,7 +3,7 @@ USE MOCKS;
 
 CREATE TABLE `questions` (
   `SNO` int(11) NOT NULL,
-  `QuestionAuthor` enum('Suria Prasath','Vankavin','Anant S Maadhav','Janani','Allen Manoj','Mohanramm','Sudarshan','Althaf','Aparna S','Shiyamal','Shrudin S','Krishnapriya','Madhurima','Vaishnavi','Rohan Lewis','Abdul Rehman I','Benita Majo','Nag Srikesh','Nikhilesh','Amirta Josna','D Uma Maheshwari','Deekshitha','Febia Thomas','Karan Raj','Rajsudhan M','Sahari Krithik','Sadana','Prabu Manoj','Jeffrey Joan','Tanari Sai Vignesh','Vignesh S') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `QuestionAuthor` enum('Aadhan','Aditya Krishnan','Aditya Rajan','Aishwarya','Aishwarya Sreenivasan','Akshara','Aparrajitha','Chandrashekhar','Gopika','Harini','Harshavardhini','Lekha','Mahima','Mavresh','Meer','Pooja','Ragini','Sharon') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `QuestionText` varchar(603) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `QuestionTopic` enum('CORE','PROGRAMMING','VERBAL ABILITY','QUANTITATIVE ABILITY') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `CoreDept` enum('AUT','BIO','CHE','CIV','MEC','ECE','EEE','CSE','INT') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
@@ -20,7 +20,6 @@ CREATE TABLE `users` (
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `reg_no` varchar(12) NOT NULL,
   `dept` enum('AUT','BIO','CHE','CIV','CSE','ECE','EEE','INT','MEC') NOT NULL,
-  `section` enum('A','B','C','') NOT NULL,
   `email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
