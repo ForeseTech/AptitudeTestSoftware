@@ -6,6 +6,11 @@
 
 		<title>Aptitude Test - Mocks 2022</title>
 
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 		<!-- Custom CSS -->
 		<link href="../static/css/test-index.css" rel="stylesheet">
 		<!-- Timer JS -->
@@ -15,57 +20,52 @@
 	<body>
 		<span id="timer"></span>
 
-		<form method="POST" id="test" action="php/test-index.php" name="test">
+		<form method="POST" action="php/test-index.php" name="test" id="test">
 		
 			<?php
 
 				require '../sql_connections.php';
 				require '../includes/utilities.php';
 
-				$name       = sanitize(strtoupper($_POST['nameIn']));
-				$regNum     = sanitize($_POST['regIn']);
-				$department = sanitize($_POST['deptIn']);
-				$section    = !empty($_POST['sectionInput']) ? sanitize($_POST['sectionInput']) : "";
-				$email      = sanitize($_POST['emailIn']);
+				$name    = sanitize(strtoupper($_POST['name']));
+				$regNum  = sanitize($_POST['regIn']);
+				$dept    = sanitize($_POST['dept']);
+				$email   = sanitize($_POST['email']);
 
 				// Establish database connection
 				$conn = getConn();
-				$sql_query = "INSERT INTO users VALUES(SNO, :name, :regNum, :deptInput, :sectionInput, :email)";
+				$sql_query = "INSERT INTO users VALUES(SNO, :name, :regNum, :deptInput, :email)";
 				$sql = $conn->prepare($sql_query);
 				$sql->execute([
 					':name'         => $name,
 					':regNum'       => $regNum,
-					':deptInput'    => $department,
-					':sectionInput' => $section,
+					':deptInput'    => $dept,
 					':email' 		=> $email,
 				]);
 				
 				$qCount = 1;
 
-				// Do we need this?
-				$conn = getConn();
-									
 				$setNo = ((int)$regNum % 3);
 				$offset = $setNo * 10;
 
-				$sql_stmt = "SELECT QuestionText, OptA, OptB, OptC, OptD, Picture FROM questions WHERE CoreDept = :CoreDept";
-				$stmt = $conn->prepare($sql_stmt);
-				$stmt->execute([":CoreDept" => $department]);
-				$core = $stmt->fetchAll();
+				$sql_stmt = "SELECT QuestionText, OptA, OptB, OptC, OptD, Picture FROM questions WHERE QuestionTopic = 'QUANTITATIVE ABILITY' LIMIT 10 OFFSET $offset";
+				$stmt = $conn->query($sql_stmt);
+				$quants = $stmt->fetchAll();
 
 				$sql_stmt = "SELECT QuestionText, OptA, OptB, OptC, OptD, Picture FROM questions WHERE QuestionTopic = 'VERBAL ABILITY' LIMIT 10 OFFSET $offset";
 				$stmt = $conn->query($sql_stmt);
 				$verbal = $stmt->fetchAll();
 
-				$sql_stmt = "SELECT QuestionText, OptA, OptB, OptC, OptD, Picture FROM questions WHERE QuestionTopic = 'QUANTITATIVE ABILITY' LIMIT 10 OFFSET $offset";
-				$stmt = $conn->query($sql_stmt);
-				$quant = $stmt->fetchAll();
-
 				$sql_stmt = "SELECT QuestionText, OptA, OptB, OptC, OptD, Picture FROM questions WHERE QuestionTopic= 'PROGRAMMING' LIMIT 10 OFFSET $offset";
 				$stmt = $conn->query($sql_stmt);
 				$programming = $stmt->fetchAll();
 
-				$results = array_merge($core, $verbal, $quant, $programming);
+				$sql_stmt = "SELECT QuestionText, OptA, OptB, OptC, OptD, Picture FROM questions WHERE CoreDept = :CoreDept";
+				$stmt = $conn->prepare($sql_stmt);
+				$stmt->execute([":CoreDept" => $dept]);
+				$core = $stmt->fetchAll();
+				
+				$results = array_merge($quants, $verbal, $programming, $core);
 			?>
 
 			<?php foreach($results as $row) : ?>
@@ -79,7 +79,9 @@
 					$image = $row["Picture"];
 				?>
 
-				<div class = "questions"><b><?= $qCount ?>. <?= $question ?></b></div>
+				<div class = "question">
+					<?= $qCount ?>. <?= $question ?>
+				</div>
 
 				<?php if ($image !== "None") : ?>
 					<img src="<?= $image ?>" alt="Question Image" width="400" />
@@ -104,16 +106,17 @@
 
 			<?php endforeach; ?>
 
-			<input type="hidden" name="department" value="<?= $department ?>">
+			<input type="hidden" name="department" value="<?= $dept ?>">
 			<input type="hidden" name="regnumber" value="<?= $regNum ?>">
-
-			<button type="submit">Submit Test</button>
+			<button type="submit">SUBMIT TEST</button>
 
 		</form>
+
 		<footer>
-			Copyright &copy; 2022 <b>FOR</b>um for <b>E</b>conomic <b>S</b>tudies by <b>E</b>ngineers - 
+			Copyright &copy; 2022 - <b>FOR</b>um for <b>E</b>conomic <b>S</b>tudies by <b>E</b>ngineers - 
 			Designed and Developed by<b> FORESE Tech</b>
     	</footer>
+
 	</body>
 	<script src="../static/js/script.js"></script>
 </html>
