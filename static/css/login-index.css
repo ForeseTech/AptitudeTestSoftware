@@ -1,32 +1,54 @@
-::-webkit-scrollbar {
-  width: 10px;
+html {
+  height: 100%;
 }
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
+body {
+  font-family: 'Roboto Slab', serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #888;
+.header {
+  text-align: center;
+  font-weight: 500 !important;
+  font-size: 4rem !important;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
+label {
+  font-size: 1rem !important;
+}
+
+small {
+  color: #a0a0a0;
+  font-size: 0.83rem;
+  line-height: 2rem;
+}
+
+ol {
+  margin-left: 0;
+  padding-left: 0.7rem;
+}
+
+ol > li {
+  text-align: justify;
 }
 
 footer {
+  font-size: 0.9rem;
   display: block;
-  position: fixed;
+  position: sticky;
   text-align: center;
   background-color: #f8f9fa;
   bottom: 0;
   padding: 0.65rem 1rem;
   width: 100%;
   box-sizing: border-box;
+  margin-top: auto;
 }
 
 @media only screen and (max-width: 600px) {
-  body {
-    padding-bottom: 7rem;
+  .container {
+    padding-top: 3.75rem !important;
   }
 }
