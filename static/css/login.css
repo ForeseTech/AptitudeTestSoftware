@@ -15,6 +15,10 @@ body {
   font-size: 4rem !important;
 }
 
+.container {
+  padding-top: 1.25rem !important;
+}
+
 label {
   font-size: 1rem !important;
 }
