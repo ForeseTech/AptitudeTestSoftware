@@ -3,6 +3,7 @@ html {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  font-family: 'Roboto Slab', serif;
 }
 
 ::-webkit-scrollbar {
@@ -47,40 +48,45 @@ form {
   margin: 5% auto;
 }
 
-.options {
+.question {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding-top: 1.6rem;
+
   user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
 }
 
-input[type='radio'] {
-  margin: 0% 0%;
-  margin-right: 1%;
-  margin-left: 2%;
+.options {
+  font-weight: 300;
 
-  vertical-align: middle;
-}
-
-.questions {
-  padding-top: 3%;
   user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
 }
 
 button {
+  font-size: 1.03rem;
+  font-weight: 600;
   display: block;
-  width: 50%;
+  width: 20%;
 
   margin: 2% auto 5% auto;
   padding: 1%;
+}
 
-  font-size: 150%;
+input[type='radio'] {
+  margin: 0% 0%;
+  margin-right: 1.4%;
+
+  vertical-align: middle;
 }
 
 footer {
+  font-size: 0.9rem;
   display: block;
-  position: fixed;
+  position: sticky;
   text-align: center;
   background-color: #f8f9fa;
   bottom: 0;
@@ -90,10 +96,18 @@ footer {
 }
 
 @media only screen and (max-width: 600px) {
-  body {
-    padding-bottom: 4rem;
+  form {
+    width: 85%;
+    margin: 5% auto;
   }
-  .questions {
-    padding-top: 10%;
+  .question {
+    padding-top: 2.4rem;
+  }
+  button {
+    margin-top: 2.4rem;
+    width: 60%;
+  }
+  footer {
+    font-size: 0.85rem;
   }
 }
