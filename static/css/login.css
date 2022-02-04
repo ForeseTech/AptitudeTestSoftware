@@ -9,6 +9,7 @@ body {
 }
 
 .header {
+  text-transform: uppercase !important;
   text-align: center;
   font-family: 'IBM Plex Sans Thai Looped', sans-serif !important;
   font-weight: 500 !important;
