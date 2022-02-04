@@ -14,9 +14,20 @@
   background: #555;
 }
 
+.header {
+  text-transform: uppercase !important;
+  text-align: center;
+  font-family: 'IBM Plex Sans Thai Looped', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 3rem !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0 !important;
+}
+
 #scores {
   width: 100%;
   text-align: center;
+  font-family: 'Roboto Slab', serif;
 }
 
 body {
