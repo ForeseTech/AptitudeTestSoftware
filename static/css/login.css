@@ -33,6 +33,10 @@ small {
   line-height: 2rem;
 }
 
+button {
+  font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+}
+
 h3 {
   font-family: 'IBM Plex Sans Thai Looped', sans-serif;
   font-size: 1.35rem;
