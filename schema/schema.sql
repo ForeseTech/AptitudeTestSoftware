@@ -61,8 +61,8 @@ CREATE TABLE `scores` (
 
 CREATE TABLE `users` (
   `SNO` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
   `reg_no` varchar(12) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `dept` enum('AUT','BIO','CHE','CIV','CSE','ECE','EEE','INT','MEC') NOT NULL,
   `email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
