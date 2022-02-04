@@ -39,6 +39,7 @@ thead {
 }
 
 footer {
+  font-family: 'Roboto Slab', serif;
   display: block;
   position: fixed;
   text-align: center;
