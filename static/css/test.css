@@ -40,8 +40,9 @@ html {
 h2 {
   text-align: center;
   font-weight: 600;
-  padding-top: 3rem;
+  padding-top: 2rem;
   line-height: 1rem;
+  font-size: 2rem;
   text-transform: uppercase;
   margin: 0;
 }
@@ -55,8 +56,8 @@ form {
 .question {
   font-size: 1.1rem;
   font-weight: 500;
-  padding-top: 0.8rem;
-  margin-top: 0.8rem;
+  padding-top: 1rem;
+  margin-top: 1rem;
 
   user-select: none;
   -webkit-user-select: none;
@@ -101,16 +102,20 @@ footer {
 }
 
 @media only screen and (max-width: 600px) {
+  h2:nth-of-type(1) {
+    padding-top: 5rem;
+  }
   h2 {
     line-height: 0;
-    font-size: 1.7rem;
+    font-size: 1.66rem;
   }
   form {
     width: 85%;
     margin: 5% auto;
   }
-  .question {
-    padding-top: 1.2rem;
+  .options {
+    padding-top: 0;
+    margin-bottom: 1.8rem;
   }
   button {
     margin-top: 2.4rem;
