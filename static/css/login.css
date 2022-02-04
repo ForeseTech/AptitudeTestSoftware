@@ -39,7 +39,7 @@ button {
 
 h3 {
   font-family: 'IBM Plex Sans Thai Looped', sans-serif;
-  font-size: 1.35rem;
+  font-size: 2rem;
   margin-bottom: 0 !important;
 }
 
@@ -50,7 +50,8 @@ ol {
 
 ol > li {
   font-family: 'Roboto Slab', serif;
-  line-height: 1.48rem;
+  font-size: 1.11rem;
+  line-height: 1.52rem;
   text-align: justify;
 }
 
