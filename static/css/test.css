@@ -22,11 +22,6 @@ html {
   background: #555;
 }
 
-h1 {
-  display: block;
-  text-align: center;
-}
-
 #timer {
   width: 100%;
   position: fixed;
@@ -42,6 +37,15 @@ h1 {
   line-height: 2.75rem;
 }
 
+h2 {
+  text-align: center;
+  font-weight: 600;
+  padding-top: 3rem;
+  line-height: 1rem;
+  text-transform: uppercase;
+  margin: 0;
+}
+
 form {
   height: 95%;
   width: 70%;
@@ -50,8 +54,9 @@ form {
 
 .question {
   font-size: 1.1rem;
-  font-weight: 600;
-  padding-top: 1.6rem;
+  font-weight: 500;
+  padding-top: 0.8rem;
+  margin-top: 0.8rem;
 
   user-select: none;
   -webkit-user-select: none;
@@ -96,12 +101,16 @@ footer {
 }
 
 @media only screen and (max-width: 600px) {
+  h2 {
+    line-height: 0;
+    font-size: 1.7rem;
+  }
   form {
     width: 85%;
     margin: 5% auto;
   }
   .question {
-    padding-top: 2.4rem;
+    padding-top: 1.2rem;
   }
   button {
     margin-top: 2.4rem;

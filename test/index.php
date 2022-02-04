@@ -70,6 +70,22 @@
 
 			<?php foreach($results as $row) : ?>
 
+				<?php if ($qCount === 1) : ?>
+					<h2>Quantitative Ability</h2>
+				<?php endif; ?>
+
+				<?php if ($qCount === 11) : ?>
+					<h2>Verbal Reasoning</h2>
+				<?php endif; ?>
+
+				<?php if ($qCount === 21) : ?>
+					<h2>Programming</h2>
+				<?php endif; ?>
+
+				<?php if ($qCount === 31) : ?>
+					<h2>Core</h2>
+				<?php endif; ?>
+
 				<?php
 					$question = nl2br($row['QuestionText']);
 					$optA  = nl2br($row['OptA']);
