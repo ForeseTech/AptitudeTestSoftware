@@ -20,16 +20,15 @@
     <table class="table table-bordered table-hover" id="scores">
       <thead>
         <tr>
+          <th>SNo.</th>
           <th>Register Num.</th>
           <th>Name</th>
           <th>Dept.</th>
-          <th>Sec.</th>
           <th>E-Mail ID</th>
-          <th>Preference</th>
-          <th>Sec. 1</th>
-          <th>Sec. 2</th>
-          <th>Sec. 3</th>
-          <th>Sec. 4</th>
+          <th>Quants</th>
+          <th>Verbal</th>
+          <th>Coding</th>
+          <th>Core</th>
           <th>Total</th>
         </tr>
       </thead>
@@ -41,21 +40,19 @@
           require '../sql_connections.php';
           $conn = getConn();
 
-          $query = "SELECT scores.SNO, scores.reg_no, users.name, users.dept, users.section, users.email, users.preference, scores.sec_1, scores.sec_2, scores.sec_3, scores.sec_4, scores.total FROM scores, users WHERE scores.reg_no = users.reg_no";
+          $query = "SELECT scores.SNO, scores.reg_no, users.name, users.dept, users.email, scores.sec_1, scores.sec_2, scores.sec_3, scores.sec_4, scores.total FROM scores, users WHERE scores.reg_no = users.reg_no ORDER by users.dept";
 
           $stmt = $conn->query($query);
           $students = $stmt->fetchAll();
-
         ?>
 
         <?php foreach($students as $key => $student) : ?>
           <tr>
+            <td><?= $key + 1; ?></td>
             <td><?= $student["reg_no"]; ?></td>
             <td><?= $student["name"]; ?></td>
             <td><?= $student["dept"]; ?></td>
-            <td><?= $student["section"]; ?></td>
             <td><?= $student["email"]; ?></td>
-            <td><?= $student["preference"]; ?></td>
             <td><?= $student["sec_1"]; ?></td>
             <td><?= $student["sec_2"]; ?></td>
             <td><?= $student["sec_3"]; ?></td>
@@ -68,12 +65,12 @@
     </table>
   </div>
   <footer>
-      Copyright &copy; 2021 <b>FOR</b>um for <b>E</b>conomic <b>S</b>tudies by <b>E</b>ngineers - Designed and Developed
+      Copyright &copy; 2022 <b>FOR</b>um for <b>E</b>conomic <b>S</b>tudies by <b>E</b>ngineers - Designed and Developed
       by
       <b>FORESE Tech</b>
     </footer>
 </body>
-<!-- jQuery -->
+  <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
   <!-- DataTablesJS -->
