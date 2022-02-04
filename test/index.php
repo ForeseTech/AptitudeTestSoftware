@@ -45,30 +45,33 @@
 				
 				$qCount = 1;
 
-				$setNo = ((int)$regNum % 3);
-				$offset = $setNo * 10;
+				$seed = ((int)$regNum % 10); 
 
-				$sql_stmt = "SELECT QuestionText, OptA, OptB, OptC, OptD, Picture FROM questions WHERE QuestionTopic = 'QUANTITATIVE ABILITY' LIMIT 10 OFFSET $offset";
+				// Retrieve quants questions
+				$sql_stmt = "SELECT QuestionText, OptA, OptB, OptC, OptD, Picture FROM questions WHERE QuestionTopic = 'QUANTITATIVE ABILITY' ORDER BY rand($seed) LIMIT 10";
 				$stmt = $conn->query($sql_stmt);
 				$quants = $stmt->fetchAll();
 
-				$sql_stmt = "SELECT QuestionText, OptA, OptB, OptC, OptD, Picture FROM questions WHERE QuestionTopic = 'VERBAL ABILITY' LIMIT 10 OFFSET $offset";
-				$stmt = $conn->query($sql_stmt);
-				$verbal = $stmt->fetchAll();
+				// Retrieve verbal questions
+				$sql_stmt = "SELECT QuestionText, OptA, OptB, OptC, OptD, Picture FROM questions WHERE QuestionTopic = 'VERBAL ABILITY' ORDER BY rand($seed) LIMIT 10";
+				$stmt     = $conn->query($sql_stmt);
+				$verbal   = $stmt->fetchAll();
 
-				$sql_stmt = "SELECT QuestionText, OptA, OptB, OptC, OptD, Picture FROM questions WHERE QuestionTopic= 'PROGRAMMING' LIMIT 10 OFFSET $offset";
-				$stmt = $conn->query($sql_stmt);
+				// Retrieve programming questions
+				$sql_stmt    = "SELECT QuestionText, OptA, OptB, OptC, OptD, Picture FROM questions WHERE QuestionTopic= 'PROGRAMMING' ORDER BY rand($seed) LIMIT 10";
+				$stmt        = $conn->query($sql_stmt);
 				$programming = $stmt->fetchAll();
 
-				$sql_stmt = "SELECT QuestionText, OptA, OptB, OptC, OptD, Picture FROM questions WHERE CoreDept = :CoreDept";
-				$stmt = $conn->prepare($sql_stmt);
+				// Retrieve core questions
+				$sql_stmt = "SELECT QuestionText, OptA, OptB, OptC, OptD, Picture FROM questions WHERE CoreDept = :CoreDept ORDER BY rand($seed)";
+				$stmt     = $conn->prepare($sql_stmt);
 				$stmt->execute([":CoreDept" => $dept]);
-				$core = $stmt->fetchAll();
+				$core     = $stmt->fetchAll();
 				
-				$results = array_merge($quants, $verbal, $programming, $core);
+				$questions = array_merge($quants, $verbal, $programming, $core);
 			?>
 
-			<?php foreach($results as $row) : ?>
+			<?php foreach($questions as $row) : ?>
 
 				<?php if ($qCount === 1) : ?>
 					<h2>Quantitative Ability</h2>

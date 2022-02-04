@@ -14,27 +14,26 @@
 	// Establish database connectoon
 	$conn = getConn();
 
-	// Declare set number and hence offset
-	$setNo = ($regNum % 3);
-	$offset = $setNo * 10;
+	// Declare random seed
+	$seed = ($regNum % 10);
 
 	// Retrieve correct answers for quants questions
-	$sql_stmt = "SELECT CorrectOpt FROM questions WHERE QuestionTopic = 'QUANTITATIVE ABILITY' LIMIT 10 OFFSET $offset";
+	$sql_stmt = "SELECT CorrectOpt FROM questions WHERE QuestionTopic = 'QUANTITATIVE ABILITY' ORDER BY rand($seed) LIMIT 10";
 	$stmt = $conn->query($sql_stmt);
 	$quants = $stmt->fetchAll();
 
 	// Retrieve correct answers for verbal questions
-	$sql_stmt = "SELECT CorrectOpt FROM questions WHERE QuestionTopic = 'VERBAL ABILITY' LIMIT 10 OFFSET $offset";
+	$sql_stmt = "SELECT CorrectOpt FROM questions WHERE QuestionTopic = 'VERBAL ABILITY' ORDER BY rand($seed) LIMIT 10";
 	$stmt = $conn->query($sql_stmt);
 	$verbal = $stmt->fetchAll();
 	
 	// Retrieve correct answers for programming questions
-	$sql_stmt = "SELECT CorrectOpt FROM questions WHERE QuestionTopic= 'PROGRAMMING' LIMIT 10 OFFSET $offset";
+	$sql_stmt = "SELECT CorrectOpt FROM questions WHERE QuestionTopic= 'PROGRAMMING' ORDER BY rand($seed) LIMIT 10";
 	$stmt = $conn->query($sql_stmt);
 	$programming = $stmt->fetchAll();
 
 	// Retrieve correct answers for core questions
-	$sql_stmt = "SELECT CorrectOpt FROM questions WHERE CoreDept = :CoreDept";
+	$sql_stmt = "SELECT CorrectOpt FROM questions WHERE CoreDept = :CoreDept ORDER BY rand($seed)";
 	$stmt = $conn->prepare($sql_stmt);
 	$stmt->execute([":CoreDept" => $dept]);
 	$core = $stmt->fetchAll();
