@@ -54,7 +54,7 @@
 						require '../sql_connections.php';
 						$conn = getConn();
 
-						$query = "SELECT scores.SNO, scores.reg_no, scores.sec_1, scores.sec_2, scores.sec_3, scores.sec_4, scores.total FROM scores";
+						$query = "SELECT scores.SNO, scores.reg_no, scores.sec_1, scores.sec_2, scores.sec_3, scores.sec_4, scores.total FROM scores ORDER BY reg_no";
 
 						$stmt = $conn->query($query);
 						$students = $stmt->fetchAll();
