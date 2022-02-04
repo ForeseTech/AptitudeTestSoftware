@@ -9,11 +9,11 @@ function getConn() {
     $DB_NAME     = substr($cleardb_url["path"], 1);
     $DB_CHARSET  = "utf8mb4";
 
-//   $DB_HOST     =  "localhost";
-//   $DB_NAME     =  "mocks";
-//   $DB_USERNAME =  "root";
-//   $DB_PASSWORD =  "";
-//   $DB_CHARSET  =  "utf8mb4";
+    // $DB_HOST     =  "localhost";
+    // $DB_NAME     =  "mocks";
+    // $DB_USERNAME =  "root";
+    // $DB_PASSWORD =  "";
+    // $DB_CHARSET  =  "utf8mb4";
 
   $dsn = "mysql:host=" . $DB_HOST . ";dbname=" . $DB_NAME . ";charset=" . $DB_CHARSET;
   $options = [
