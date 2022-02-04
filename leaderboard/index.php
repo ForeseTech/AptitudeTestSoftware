@@ -37,7 +37,7 @@
 				<thead>
 					<tr>
 					<th>SNo.</th>
-					<th>Register Num.</th>
+					<th class="duplifer">Register Num.</th>
 					<th>Quants</th>
 					<th>Verbal</th>
 					<th>Coding</th>
@@ -98,6 +98,9 @@
 	<!-- jQuery -->
 	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
+	<!-- Duplifier JS -->
+	<script src="../static/js/duplifier.js"></script>
+
 	<!-- DataTables JS -->
 	<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
 
@@ -105,10 +108,11 @@
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
 	
-	<!-- Initialize Datatables -->
+	<!-- Initialize Datatables and Duplifier -->
 	<script>
 		$(document).ready(function () {
-			$("#scores").DataTable({paging: false});
+			$("#scores").DataTable({ paging: false });
+			$(".table").duplifer();
 		});
 	</script>
 
