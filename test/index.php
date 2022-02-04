@@ -127,14 +127,14 @@
 
 			<input type="hidden" name="department" value="<?= $dept ?>">
 			<input type="hidden" name="regnumber" value="<?= $regNum ?>">
-			<button type="submit">SUBMIT TEST</button>
 
+			<button type="submit">SUBMIT TEST</button>
 		</form>
 
 		<footer>
 			Copyright &copy; 2022 - <b>FOR</b>um for <b>E</b>conomic <b>S</b>tudies by <b>E</b>ngineers - 
 			Designed and Developed by<b> FORESE Tech</b>
-    	</footer>
+    </footer>
 
 	</body>
 	<script src="../static/js/script.js"></script>
