@@ -14,6 +14,10 @@
   background: #555;
 }
 
+body {
+  padding-bottom: 3rem;
+}
+
 .header {
   text-transform: uppercase !important;
   text-align: center;
@@ -24,18 +28,19 @@
   margin-bottom: 0 !important;
 }
 
+thead {
+  white-space: nowrap;
+}
+
 #scores {
   width: 100%;
   text-align: center;
   font-family: 'Roboto Slab', serif;
 }
 
-body {
-  padding-bottom: 3rem;
-}
-
-thead {
-  white-space: nowrap;
+button {
+  background-color: white;
+  border: none;
 }
 
 footer {
