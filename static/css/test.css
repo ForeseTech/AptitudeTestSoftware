@@ -26,12 +26,12 @@ html {
   width: 100%;
   position: fixed;
   top: 0;
-  border-bottom: 1px solid black;
+  border-bottom: 0.15rem solid black;
   background-color: #f8f9fa;
   font-weight: 700;
   text-align: center;
   color: green;
-  font-size: 180%;
+  font-size: 225%;
   height: 2.75rem;
   vertical-align: middle;
   line-height: 2.75rem;
@@ -42,34 +42,57 @@ h2 {
   font-weight: 600;
   padding-top: 2rem;
   line-height: 1rem;
-  font-size: 2rem;
+  padding-bottom: 1rem;
+  font-size: 2.5rem;
+  font-family: 'IBM Plex Sans Thai Looped', sans-serif;
   text-transform: uppercase;
   margin: 0;
 }
 
+h2:not(:first-child) {
+  border-top: 0.15rem solid black;
+}
+
 form {
+  padding-top: 3.3rem;
   height: 95%;
-  width: 70%;
-  margin: 5% auto;
 }
 
 .question {
+  width: 70%;
+  margin: 0 auto;
+
   font-size: 1.1rem;
   font-weight: 500;
   padding-top: 1rem;
-  margin-top: 1rem;
+
+  line-height: 1.7rem;
 
   user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
 }
 
+img {
+  display: block;
+  margin: auto;
+}
+
 .options {
+  width: 70%;
+  margin: auto;
+
   font-weight: 300;
+
+  margin-bottom: 1rem;
 
   user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+}
+
+label {
+  line-height: 2rem;
 }
 
 button {
@@ -110,11 +133,14 @@ footer {
     font-size: 1.66rem;
   }
   form {
-    width: 85%;
-    margin: 5% auto;
+    padding-top: 0.75rem;
+  }
+  .question {
+    width: 80%;
   }
   .options {
     padding-top: 0;
+    width: 80%;
     margin-bottom: 1.8rem;
   }
   button {

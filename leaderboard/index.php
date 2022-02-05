@@ -34,17 +34,20 @@
 			<table class="ui blue single line celled compact selectable table" id="scores">
 				<thead>
 					<tr>
-					<th class="one wide">SNo.</th>
-					<th class="two wide duplifer">Register Num.</th>
-					<th class="three wide">Name</th>
-					<th class="one wide">Dept.</th>
-					<th class="three wide ">E-Mail ID</th>
-					<th class="one wide">Quants</th>
-					<th class="one wide">Verbal</th>
-					<th class="one wide">Coding</th>
-					<th class="one wide">Core</th>
-					<th class="one wide">Total</th>
-					<th class="one wide">Action</th>
+						<th rowspan="2" class="one wide">SNo.</th>
+						<th rowspan="2" class="two wide duplifer">Register Num.</th>
+						<th rowspan="2" class="three wide">Name</th>
+						<th rowspan="2" class="one wide">Dept.</th>
+						<th rowspan="2" class="three wide ">E-Mail ID</th>
+						<th colspan="4" class="four wide">Sections</th>
+						<th rowspan="2" class="one wide">Total</th>
+						<th rowspan="2" class="one wide">Action</th>
+					</tr>
+					<tr>
+						<th>Quants</th>
+						<th>Verbal</th>
+						<th>Coding</th>
+						<th>Core</th>
 					</tr>
 				</thead>
 			
@@ -137,7 +140,7 @@
 			});
 
 			table.searchBuilder.container().prependTo(table.table().container());
-			
+
 			table.on('order.dt search.dt', () => {
 				table.column(0, { search: 'applied', order: 'applied' })
 				.nodes()
