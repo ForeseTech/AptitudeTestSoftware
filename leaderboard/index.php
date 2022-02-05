@@ -38,6 +38,9 @@
 					<tr>
 					<th>SNo.</th>
 					<th class="duplifer">Register Num.</th>
+					<th>Name</th>
+					<th>Dept.</th>
+					<th>E-Mail ID</th>
 					<th>Quants</th>
 					<th>Verbal</th>
 					<th>Coding</th>
@@ -54,7 +57,7 @@
 						require '../sql_connections.php';
 						$conn = getConn();
 
-						$query = "SELECT scores.SNO, scores.reg_no, scores.sec_1, scores.sec_2, scores.sec_3, scores.sec_4, scores.total FROM scores ORDER BY reg_no";
+						$query = "SELECT scores.SNO, users.reg_no, users.name, users.dept, users.email, scores.sec_1, scores.sec_2, scores.sec_3, scores.sec_4, scores.total FROM scores, users WHERE scores.reg_no = users.reg_no ORDER BY reg_no";
 
 						$stmt = $conn->query($query);
 						$students = $stmt->fetchAll();
@@ -66,6 +69,9 @@
 						<tr>
 							<td><?= $key + 1; ?></td>
 							<td><?= $student["reg_no"]; ?></td>
+							<td><?= $student["name"]; ?></td>
+							<td><?= $student["dept"]; ?></td>
+							<td><?= $student["email"]; ?></td>
 							<td><?= $student["sec_1"]; ?></td>
 							<td><?= $student["sec_2"]; ?></td>
 							<td><?= $student["sec_3"]; ?></td>
