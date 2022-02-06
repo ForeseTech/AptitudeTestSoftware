@@ -2,11 +2,11 @@
 
 LAMP Application to conduct mock aptitude tests at SVCE.
 
-Complete with user authentication, automatic result evaluation, mailing module, attendance generation and much more...
+Complete with **user authentication, automatic result evaluation, attendance generation** and much more...
 
 ## Contents
 - [Motivation](#motivation)
-- [Installation](#installation)
+- [Installation And Setup](#installation-and-setup)
 - [Project Structure](#project-structure)
 - [Features and Screenshots](#features-and-screenshots-click-to-enlarge)
 - [Tools](#tools)
@@ -16,15 +16,28 @@ Complete with user authentication, automatic result evaluation, mailing module, 
 - [LICENSE](#license)
 
 ## Motivation
-We run a chapter (club) at our college where we assist 500+ pre-final year students to prepare for their upcoming placements through a plethora of events such as mock interviews, aptitude tests and group discussions. It was a tedious process to prepare questions, invigilate tests, evaluate answer sheets, and give constructive feedback to students and so we decided to automate the process.
+We run a chapter (club) at our college where we assist **500+ pre-final year students** to prepare for their upcoming placements through a plethora of events such as mock interviews, aptitude tests and group discussions. It was a tedious task to prepare questions, invigilate tests, evaluate answer sheets, and give constructive feedback to students and so we decided to automate the process.
 
-The software runs on PHP 7.2 and MySQL. The CSS framework [Bootstrap 4](https://getbootstrap.com/) was used for the design.
+The software runs on **PHP 7.2 and MySQL**. The CSS framework **[Semantic UI](https://semantic-ui.com/)** was used for the design.
+
+The **Heroku** platform was used for deployment.
 
  
-## Installation
+## Installation And Setup
 
 ### Install Apache, MySQL, and PHP
-It is assumed you already know how to install LAMP stack. For macOS and Windows local development, I would recommend downloading [XAMPP](https://www.apachefriends.org/download.html) for a sandboxed environment. 
+- It is assumed you already know how to install LAMP stack. For macOS and Windows local development, I would recommend downloading [XAMPP (https://www.apachefriends.org/download.html) for a sandboxed environment.
+
+```
+Clone the repository to your C:\xampp\htdocs directory
+git clone https://github.com/ForeseTech/AptitudeTestSoftware.git
+
+Navigate to the cloned repo
+cd AptitudeTestSoftware/
+
+Start the Apache and MySQL modules on the XAMPP Control Panel
+Navigate to http://localhost/AptitudeTestSoftware/ to view the application.
+```
 
 ## Project Structure
 
@@ -68,6 +81,9 @@ We used a combination of many tutorials and StackOverflow posts to create this p
 * [Storing Images in MySQL using PHP](https://stackoverflow.com/questions/26757659/how-to-store-images-in-mysql-database-using-php)
 * [Disable Right-Click on a Site](https://stackoverflow.com/questions/737022/how-do-i-disable-right-click-on-my-web-page)
 * [Prevent Copying Text on a Site](https://stackoverflow.com/questions/8957443/prevent-copying-text-in-web-page/8957470)
+
+## FAQ's
+
 
 ## Contributors
 * Design and Development - [Nilesh D](https://github.com/Nilesh2000)
