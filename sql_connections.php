@@ -3,10 +3,10 @@
   function getConn() {
     // Authentication credentials
     
-    // $db_url   = parse_url("mysql://b9ad6106fda39e:7a6d2989@us-cdbr-east-03.cleardb.com/heroku_01cda5d379b4d85?reconnect=true");
+    // $db_url   = parse_url("mysql://qbseohgakp1wlh5s:mnawg79qryrp0i70@uzb4o9e2oe257glt.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/nsd94ei8xe57kae2");
     // $db_url   = parse_url("mysql://root:@localhost:3306/mocks?reconnect=true");
 
-    $db_url      = parse_url(getenv("CLEARDB_DATABASE_URL"));
+    $db_url      = parse_url(getenv("JAWSDB_URL"));
     $DB_HOST     = $db_url["host"];
     $DB_USERNAME = $db_url["user"];
     $DB_PASSWORD = $db_url["pass"];
