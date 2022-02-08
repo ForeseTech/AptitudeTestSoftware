@@ -14,7 +14,7 @@
     />
 
 	<!-- SemanticUI CSS -->
-	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css'/>
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.css'/>
 
 	<!-- DataTables SemanticUI CSS -->
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.semanticui.min.css">
@@ -38,7 +38,7 @@
 	    <h1 class="ui header">Leaderboard</h1>
 		
 		<div class="ui container">
-			<table class="ui blue celled compact selectable table" id="scores">
+			<table class="ui blue celled compact selectable responsive unstackable table" id="scores">
 				<thead>
 					<tr>
 						<th rowspan="2">SNo.</th>
@@ -67,7 +67,7 @@
 						require '../sql_connections.php';
 						$conn = getConn();
 
-						$query = "SELECT scores.SNO, users.reg_no, users.name, users.dept, users.email, scores.sec_1, scores.sec_2, scores.sec_3, scores.sec_4, scores.total, RANK() OVER (PARTITION BY users.dept ORDER BY scores.total DESC) d_rank, RANK() OVER (ORDER BY scores.total DESC) c_rank FROM scores, users WHERE scores.reg_no = users.reg_no";
+						$query = "SELECT scores.SNO, users.reg_no, users.name, users.dept, users.email, scores.sec_1, scores.sec_2, scores.sec_3, scores.sec_4, scores.total, RANK() OVER (PARTITION BY users.dept ORDER BY scores.total DESC) d_rank, RANK() OVER (ORDER BY scores.total DESC) c_rank FROM scores, users WHERE scores.reg_no = users.reg_no ORDER BY users.reg_no";
 
 						$stmt = $conn->query($query);
 						$students = $stmt->fetchAll();
@@ -119,7 +119,7 @@
 	<script src="../static/js/duplifier.js"></script>
 
 	<!-- SemanticUI  JS -->
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js'></script>
 
 	<!-- DataTables JS -->
 	<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
