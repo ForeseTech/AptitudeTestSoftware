@@ -13,13 +13,20 @@
       rel="stylesheet"
     />
 
-	<!-- Semantic UI CSS -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.css">
+	<!-- SemanticUI CSS -->
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css'/>
 
+	<!-- DataTables SemanticUI CSS -->
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.semanticui.min.css">
 
-	<!-- SearchBuider CSS -->
-	<link rel="stylesheet" href="https://cdn.datatables.net/searchbuilder/1.3.0/css/searchBuilder.dataTables.min.css">
+	<!-- FixedHeader CSS -->
+	<link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.1/css/fixedHeader.semanticui.min.css">
+
+	<!-- SearchBuilder SemanticUI CSS -->
+	<link rel="stylesheet" href="https://cdn.datatables.net/searchbuilder/1.3.0/css/searchBuilder.semanticui.min.css">
+
+	<!-- Responsive CSS -->
+	<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.semanticui.min.css">
 
 	<!-- Custom CSS -->
 	<link rel="stylesheet" href="../static/css/leaderboard.css">
@@ -31,17 +38,19 @@
 	    <h1 class="ui header">Leaderboard</h1>
 		
 		<div class="ui container">
-			<table class="ui blue single line celled compact selectable table" id="scores">
+			<table class="ui blue celled compact selectable table" id="scores">
 				<thead>
 					<tr>
-						<th rowspan="2" class="one wide">SNo.</th>
-						<th rowspan="2" class="two wide duplifer">Register Num.</th>
-						<th rowspan="2" class="three wide">Name</th>
-						<th rowspan="2" class="one wide">Dept.</th>
-						<th rowspan="2" class="three wide ">E-Mail ID</th>
-						<th colspan="4" class="four wide">Sections</th>
-						<th rowspan="2" class="one wide">Total</th>
-						<th rowspan="2" class="one wide">Action</th>
+						<th rowspan="2">SNo.</th>
+						<th rowspan="2" class="duplifer">Register Num.</th>
+						<th rowspan="2">Name</th>
+						<th rowspan="2">Dept.</th>
+						<th rowspan="2">E-Mail ID</th>
+						<th colspan="4">Sections</th>
+						<th rowspan="2">Total</th>
+						<th rowspan="2">Dept. <br>Rank</th>
+						<th rowspan="2">College <br>Rank</th>
+						<th rowspan="2">Action</th>
 					</tr>
 					<tr>
 						<th>Quants</th>
@@ -58,7 +67,7 @@
 						require '../sql_connections.php';
 						$conn = getConn();
 
-						$query = "SELECT scores.SNO, users.reg_no, users.name, users.dept, users.email, scores.sec_1, scores.sec_2, scores.sec_3, scores.sec_4, scores.total FROM scores, users WHERE scores.reg_no = users.reg_no ORDER BY reg_no";
+						$query = "SELECT scores.SNO, users.reg_no, users.name, users.dept, users.email, scores.sec_1, scores.sec_2, scores.sec_3, scores.sec_4, scores.total, RANK() OVER (PARTITION BY users.dept ORDER BY scores.total DESC) d_rank, RANK() OVER (ORDER BY scores.total DESC) c_rank FROM scores, users WHERE scores.reg_no = users.reg_no";
 
 						$stmt = $conn->query($query);
 						$students = $stmt->fetchAll();
@@ -78,6 +87,8 @@
 							<td><?= $student["sec_3"]; ?></td>
 							<td><?= $student["sec_4"]; ?></td>
 							<td><?= $student["total"]; ?></td>
+							<td><?= $student["d_rank"]; ?></td>
+							<td><?= $student["c_rank"]; ?></td>
 							<td>
 								<form action="delete.php" method="POST">
 									<input type="hidden" name="sno" value="<?= $student["SNO"]; ?>">
@@ -107,48 +118,30 @@
 	<!-- Duplifier JS -->
 	<script src="../static/js/duplifier.js"></script>
 
-	<!-- Semantic UI  JS -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
+	<!-- SemanticUI  JS -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js'></script>
 
 	<!-- DataTables JS -->
 	<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
 
+	<!-- DataTables SemanticUI JS -->
 	<script src="https://cdn.datatables.net/1.11.4/js/dataTables.semanticui.min.js"></script>
 
-	<!-- Fixed Header JS -->
+	<!-- FixedHeader JS -->
 	<script src="https://cdn.datatables.net/fixedheader/3.2.1/js/dataTables.fixedHeader.min.js"></script>
 
 	<!-- SearchBuilder JS -->
 	<script src="https://cdn.datatables.net/searchbuilder/1.3.0/js/dataTables.searchBuilder.min.js"></script>
 
+	<!-- SearchBuilder SemanticUI JS -->
+	<script src="https://cdn.datatables.net/searchbuilder/1.3.0/js/searchBuilder.semanticui.min.js"></script>
+
+	<!-- Responsive JS -->
+	<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+
+	<!-- SemanticUI Resposive JS -->
+	<script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.semanticui.min.js"></script>
+	
 	<!-- Initialize Datatables and Duplifier -->
-	<script>
-		$(document).ready(() => {
-			$('.table').duplifer();
-			const table = $('#scores').DataTable({
-				paging: false,
-				fixedHeader: true,
-				searchBuilder: true,
-				columnDefs: [
-					{
-						searchable: false,
-						orderable: false,
-						targets: 0,
-					},
-				],
-				order: [[1, 'asc']],
-			});
-
-			table.searchBuilder.container().prependTo(table.table().container());
-
-			table.on('order.dt search.dt', () => {
-				table.column(0, { search: 'applied', order: 'applied' })
-				.nodes()
-				.each(function (cell, i) {
-					cell.innerHTML = i + 1;
-				});
-			}).draw();
-		});
-	</script>
-
+	<script src="../static/js/leaderboard.js"></script>
 </html>

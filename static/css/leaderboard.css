@@ -38,6 +38,10 @@ thead {
   font-family: 'Roboto Slab', serif;
 }
 
+.ui.celled.table > thead > tr > th:first-child {
+  border-left: 1px solid rgba(34, 36, 38, 0.1);
+}
+
 button {
   background-color: white;
   border: none;
