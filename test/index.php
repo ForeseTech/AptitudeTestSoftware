@@ -31,6 +31,12 @@
 				require '../sql_connections.php';
 				require '../includes/utilities.php';
 
+				// Redirect to index page if student accesses test page without logging in
+				if (empty($_POST)) {
+					header('Location: ../index.html');
+					exit();
+				}
+
 				$name    = sanitize(strtoupper($_POST['name']));
 				$regNum  = sanitize($_POST['regIn']);
 				$dept    = sanitize($_POST['dept']);
@@ -41,10 +47,10 @@
 				$sql_query = "INSERT INTO users VALUES(SNO, :name, :regNum, :deptInput, :email)";
 				$sql = $conn->prepare($sql_query);
 				$sql->execute([
-					':name'         => $name,
-					':regNum'       => $regNum,
-					':deptInput'    => $dept,
-					':email' 		=> $email,
+					':name'      =>  $name,
+					':regNum'    =>  $regNum,
+					':deptInput' =>  $dept,
+					':email'     =>  $email,
 				]);
 				
 				$qCount = 1;
